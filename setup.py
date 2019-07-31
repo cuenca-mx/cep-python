@@ -3,6 +3,9 @@ import setuptools
 install_requirements = [
     'requests>=2.21.0,<2.22.0',
     'iso8601>=0.1.12,<0.2.0',
+    'clabe',
+    'lxml',
+    'iso8601',
 ]
 
 # dataclasses is currently only builtin for 3.7. There is a backport on PyPi.
