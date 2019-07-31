@@ -1,7 +1,5 @@
 import requests
 
-from .types import TipoConsulta
-
 USER_AGENT = (
     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 '
     '(KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36'
@@ -18,7 +16,7 @@ class Client:
             tipoCriterio='T',
             receptorParticipante=0,
             captcha='c',
-            tipoConsulta=TipoConsulta.validar.value,
+            tipoConsulta=1,
         )
 
     def get(self, endpoint: str, **kwargs) -> bytes:
