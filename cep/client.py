@@ -1,6 +1,3 @@
-import datetime as dt
-
-import clabe
 import requests
 
 USER_AGENT = (

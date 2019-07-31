@@ -16,7 +16,7 @@ class Cuenta:
         cuenta = cls(
             nombre=element.get('Nombre'),
             tipo=element.get('TipoCuenta'),
-            banco=element.get('BancoEmisor'),
+            banco=element.get('BancoEmisor') or element.get('BancoReceptor'),
             numero=element.get('Cuenta'),
             rfc=element.get('RFC'),
         )
