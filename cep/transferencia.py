@@ -69,7 +69,7 @@ class Transferencia:
                 self.beneficiario.numero,
                 self.monto
             )
-        return client.get(f'/descarga.do?formato={formato}')
+        return self._descargar(client, formato)
 
     def to_dict(self):
         return asdict(self)
