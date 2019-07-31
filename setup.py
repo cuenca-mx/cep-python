@@ -25,7 +25,7 @@ with open('README.md', 'r') as f:
 
 setuptools.setup(
     name='cepmex',
-    version='0.0.1',
+    version='0.1.0',
     author='Cuenca',
     author_email='dev@cuenca.com',
     description='CEP client library',
