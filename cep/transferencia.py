@@ -16,6 +16,7 @@ class Transferencia:
     beneficiario: Cuenta
     monto: float
     concepto: str
+    clave_rastreo: str
     emisor: str
     receptor: str
     sello: str
@@ -23,6 +24,58 @@ class Transferencia:
     @classmethod
     def validar(
         cls,
+        fecha: datetime.date,
+        clave_rastreo: str,
+        emisor: str,
+        receptor: str,
+        cuenta: str,
+        monto: float,
+    ):
+        client = cls._validar(
+            fecha, clave_rastreo, emisor, receptor, cuenta, monto)
+        xml = cls._descargar(client, 'XML')
+        resp = etree.fromstring(xml)
+
+        ordenante = Cuenta.from_etree(resp.find('Ordenante'))
+        beneficiario = Cuenta.from_etree(resp.find('Beneficiario'))
+        concepto = resp.find('Beneficiario').get('Concepto')
+        fecha_operacion = iso8601.parse_date(
+            resp.get('FechaOperacion') + ' ' + resp.get('Hora'), None
+        )
+
+        transferencia = cls(
+            fecha_operacion=fecha_operacion,
+            ordenante=ordenante,
+            beneficiario=beneficiario,
+            monto=monto,
+            concepto=concepto,
+            clave_rastreo=clave_rastreo,
+            emisor=emisor,
+            receptor=receptor,
+            sello=resp.get('sello'),
+        )
+        transferencia.__client = client
+        return transferencia
+
+    def descargar(self, formato: str = 'PDF') -> bytes:
+        """formato puede ser PDF, XML o ZIP"""
+        client = getattr(self, '__client', None)
+        if not client:
+            client = self._validar(
+                self.fecha_operacion.date(),
+                self.clave_rastreo,
+                self.emisor,
+                self.receptor,
+                self.beneficiario.numero,
+                self.monto
+            )
+        return client.get(f'/descarga.do?formato={formato}')
+
+    def to_dict(self):
+        return asdict(self)
+
+    @staticmethod
+    def _validar(
         fecha: datetime.date,
         clave_rastreo: str,
         emisor: str,
@@ -42,33 +95,9 @@ class Transferencia:
             monto=monto,
         )
         client.post('/valida.do', request_body)
-        resp_content = client.get('/descarga.do?formato=XML')
-        resp = etree.fromstring(resp_content)
+        return client
 
-        ordenante = Cuenta.from_etree(resp.find('Ordenante'))
-        beneficiario = Cuenta.from_etree(resp.find('Beneficiario'))
-        concepto = resp.find('Beneficiario').get('Concepto')
-        fecha_operacion = iso8601.parse_date(
-            resp.get('FechaOperacion') + ' ' + resp.get('Hora'), None
-        )
-
-        transferencia = cls(
-            fecha_operacion=fecha_operacion,
-            ordenante=ordenante,
-            beneficiario=beneficiario,
-            monto=monto,
-            concepto=concepto,
-            emisor=emisor,
-            receptor=receptor,
-            sello=resp.get('sello'),
-        )
-        transferencia.__client = client
-        return transferencia
-
-    def descargar(self, formato: str = 'PDF') -> bytes:
+    @staticmethod
+    def _descargar(client, formato: str = 'PDF'):
         """formato puede ser PDF, XML o ZIP"""
-        assert self.sello  # Checar que la transferencia ha validado
-        return self.__client.get(f'/descarga.do?formato={formato}')
-
-    def to_dict(self):
-        return asdict(self)
+        return client.get(f'/descarga.do?formato={formato}')

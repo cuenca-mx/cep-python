@@ -73,49 +73,6 @@ interactions:
       - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
         like Gecko) Chrome/75.0.3770.142 Safari/537.36
     method: GET
-    uri: http://www.banxico.org.mx/cep/descarga.do?formato=XML
-  response:
-    body:
-      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<SPEI_Tercero FechaOperacion=\"2019-04-12\"
-        Hora=\"13:31:44\" ClaveSPEI=\"40012\" sello=\"X8YFvAfKZhV72datpHzKes/AaOyLqgs0uDWlVqrDy8i0FV96ajZY17Hz9X35c7z/TrSSvw6BQiqVWbJGG5xriNn8PK4pFKF6nyCEr6uGQ6FuF7YqAD6tUK55BBKTdqF3j+qummKguTHJyttR4xMwmOpiuwkgXuUFaEEHiO+UjgIk7BVzkULkZdpciLrY4czMZhdqpQ7if0udu2BxWI99eU9ZqaAtILyt39MtCPObu61D4A6SFnw6JwsURm2wCZ4KSYzex18Re3Hrg+BLri5drlgcPSG5/OBeE2omlcuZTQqd5iUzRt/XVg33arK4M8h2hbcfU/xwtYEDBQ6Jewh+tg==\"
-        numeroCertificado=\"00001000000402531402\" cadenaCDA=\"||01|12042019|12042019|133144|40012|STP|Matin
-        Tamizi|40|646180157042875763|ND|BBVA BANCOMER|MATIN TAMIZI|40|012180004643051249|TAMA840916669|Matin|000000000000000.00|000000000000008.17|00001000000402531402||X8YFvAfKZhV72datpHzKes/AaOyLqgs0uDWlVqrDy8i0FV96ajZY17Hz9X35c7z/TrSSvw6BQiqVWbJGG5xriNn8PK4pFKF6nyCEr6uGQ6FuF7YqAD6tUK55BBKTdqF3j+qummKguTHJyttR4xMwmOpiuwkgXuUFaEEHiO+UjgIk7BVzkULkZdpciLrY4czMZhdqpQ7if0udu2BxWI99eU9ZqaAtILyt39MtCPObu61D4A6SFnw6JwsURm2wCZ4KSYzex18Re3Hrg+BLri5drlgcPSG5/OBeE2omlcuZTQqd5iUzRt/XVg33arK4M8h2hbcfU/xwtYEDBQ6Jewh+tg==\"
-        claveRastreo=\"CUENCA1555093850\">\r\n    <Beneficiario BancoReceptor=\"BBVA
-        BANCOMER\" Nombre=\"MATIN TAMIZI\" TipoCuenta=\"40\" Cuenta=\"012180004643051249\"
-        RFC=\"TAMA840916669\" Concepto=\"Matin\" IVA=\"000000000000000.00\" MontoPago=\"000000000000008.17\"/>\r\n
-        \   <Ordenante BancoEmisor=\"STP\" Nombre=\"Matin Tamizi\" TipoCuenta=\"40\"
-        Cuenta=\"646180157042875763\" RFC=\"ND\"/>\r\n</SPEI_Tercero>"
-    headers:
-      Content-Disposition:
-      - attachment; filename=CEP-20190412-CUENCA1555093850.xml
-      Content-Language:
-      - es-MX
-      Content-Length:
-      - '1444'
-      Content-Type:
-      - application/xml
-      Date:
-      - Wed, 31 Jul 2019 14:03:32 GMT
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Connection:
-      - keep-alive
-      Cookie:
-      - JSESSIONID=VR5IV9D-_OERmFhchay6hRDZtAP3nU7tZd83sc1n3GWZRrZsCgqp!1270002576;
-        TS014a759c=0189f484af2bd295216f721580d5cfa660ef8580b699b762f2229f22b70b8c6825738a37cd8c25b096e27a690243dd32cdf94ec6dd6d67cfa678a18bdc9d053da97bddc30faf63aac486e423aa36dc46b20d521880;
-        ser29307111=726550186.50971.0000
-      User-Agent:
-      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
-        like Gecko) Chrome/75.0.3770.142 Safari/537.36
-    method: GET
     uri: http://www.banxico.org.mx/cep/descarga.do?formato=PDF
   response:
     body:
