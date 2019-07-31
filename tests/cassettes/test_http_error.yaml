@@ -1,0 +1,107 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/75.0.3770.142 Safari/537.36
+    method: GET
+    uri: http://www.banxico.org.mx/cep/no/existe
+  response:
+    body:
+      string: ''
+    headers:
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '0'
+      Location:
+      - http://www.anterior.banxico.org.mx/cep/no/existe
+      Server:
+      - BigIP
+    status:
+      code: 302
+      message: Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/75.0.3770.142 Safari/537.36
+    method: GET
+    uri: http://www.anterior.banxico.org.mx/cep/no/existe
+  response:
+    body:
+      string: '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Draft//EN">
+
+        <HTML>
+
+        <HEAD>
+
+        <TITLE>Error 404--Not Found</TITLE>
+
+        </HEAD>
+
+        <BODY bgcolor="white">
+
+        <FONT FACE=Helvetica><BR CLEAR=all>
+
+        <TABLE border=0 cellspacing=5><TR><TD><BR CLEAR=all>
+
+        <FONT FACE="Helvetica" COLOR="black" SIZE="3"><H2>Error 404--Not Found</H2>
+
+        </FONT></TD></TR>
+
+        </TABLE>
+
+        <TABLE border=0 width=100% cellpadding=10><TR><TD VALIGN=top WIDTH=100% BGCOLOR=white><FONT
+        FACE="Courier New"><FONT FACE="Helvetica" SIZE="3"><H3>From RFC 2068 <i>Hypertext
+        Transfer Protocol -- HTTP/1.1</i>:</H3>
+
+        </FONT><FONT FACE="Helvetica" SIZE="3"><H4>10.4.5 404 Not Found</H4>
+
+        </FONT><P><FONT FACE="Courier New">The server has not found anything matching
+        the Request-URI. No indication is given of whether the condition is temporary
+        or permanent.</p><p>If the server does not wish to make this information available
+        to the client, the status code 403 (Forbidden) can be used instead. The 410
+        (Gone) status code SHOULD be used if the server knows, through some internally
+        configurable mechanism, that an old resource is permanently unavailable and
+        has no forwarding address.</FONT></P>
+
+        </FONT></TD></TR>
+
+        </TABLE>
+
+
+        </BODY>
+
+        </HTML>
+
+        '
+    headers:
+      Content-Length:
+      - '1164'
+      Content-Type:
+      - text/html; charset=UTF-8
+      Date:
+      - Wed, 31 Jul 2019 22:10:25 GMT
+      Set-Cookie:
+      - ser29307111=709772970.50971.0000; path=/; Httponly
+      - TS014a759c=0189f484af0dfe57a482b0397c7dfa4de3ec8dccb82bf88c7c60badfd116214ac8e976e9160aa3f01c58847e5567305109721675e798547f39f5e434af9c6fddd649ea7867;
+        Path=/
+    status:
+      code: 404
+      message: Not Found
+version: 1

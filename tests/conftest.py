@@ -2,7 +2,12 @@ import datetime
 
 import pytest
 
-from cep import Cuenta, Transferencia
+from cep import Client, Cuenta, Transferencia
+
+
+@pytest.fixture
+def client():
+    yield Client()
 
 
 @pytest.fixture

@@ -31,4 +31,6 @@ class Client:
     ) -> bytes:
         url = self.base_url + endpoint
         response = self.session.request(method, url, data=data, **kwargs)
+        if not response.ok:
+            response.raise_for_status()
         return response.content
