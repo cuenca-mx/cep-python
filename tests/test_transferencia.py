@@ -17,6 +17,7 @@ def test_validar_transferencia(transferencia):
         monto=8.17,
     )
     assert tr == transferencia
+    assert type(tr.to_dict()) is dict
 
 
 @pytest.mark.vcr
