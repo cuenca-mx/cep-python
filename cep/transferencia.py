@@ -71,7 +71,7 @@ class Transferencia:
             )
         return self._descargar(client, formato)
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         return asdict(self)
 
     @staticmethod
@@ -82,7 +82,7 @@ class Transferencia:
         receptor: str,
         cuenta: str,
         monto: float,
-    ):
+    ) -> Client:
         assert emisor in clabe.BANKS.values()
         assert receptor in clabe.BANKS.values()
         client = Client()  # Use new client to ensure thread-safeness
@@ -98,6 +98,6 @@ class Transferencia:
         return client
 
     @staticmethod
-    def _descargar(client, formato: str = 'PDF'):
+    def _descargar(client, formato: str = 'PDF') -> bytes:
         """formato puede ser PDF, XML o ZIP"""
         return client.get(f'/descarga.do?formato={formato}')
