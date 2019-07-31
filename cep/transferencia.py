@@ -16,10 +16,12 @@ class Transferencia:
     beneficiario: Cuenta
     monto: float
     concepto: str
+    emisor: str
+    receptor: str
     sello: str
 
     @classmethod
-    def valida(
+    def validar(
         cls,
         fecha: datetime.date,
         clave_rastreo: str,
@@ -47,7 +49,8 @@ class Transferencia:
         beneficiario = Cuenta.from_etree(resp.find('Beneficiario'))
         concepto = resp.find('Beneficiario').get('Concepto')
         fecha_operacion = iso8601.parse_date(
-            resp.get('FechaOperacion') + ' ' + resp.get('Hora'), None)
+            resp.get('FechaOperacion') + ' ' + resp.get('Hora'), None
+        )
 
         transferencia = cls(
             fecha_operacion=fecha_operacion,
@@ -55,13 +58,16 @@ class Transferencia:
             beneficiario=beneficiario,
             monto=monto,
             concepto=concepto,
+            emisor=emisor,
+            receptor=receptor,
             sello=resp.get('sello'),
         )
         transferencia.__client = client
         return transferencia
 
-    def descarga(self, formato: str = 'PDF') -> bytes:
-        # formato puede ser PDF, XML o ZIP
+    def descargar(self, formato: str = 'PDF') -> bytes:
+        """formato puede ser PDF, XML o ZIP"""
+        assert self.sello  # Checar que la transferencia ha validado
         return self.__client.get(f'/descarga.do?formato={formato}')
 
     def to_dict(self):
