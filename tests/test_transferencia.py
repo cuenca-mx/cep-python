@@ -21,6 +21,19 @@ def test_validar_transferencia(transferencia):
 
 
 @pytest.mark.vcr
+def test_fail_validar_transferencia():
+    tr = Transferencia.validar(
+        fecha=dt.date(2019, 1, 1),
+        clave_rastreo='guey',
+        emisor='90646',
+        receptor='40012',
+        cuenta='012180004643051249',
+        monto=1111111.00
+    )
+    assert tr is None
+
+
+@pytest.mark.vcr
 def test_descarga_pdf(transferencia):
     pdf = transferencia.descargar()
     file_dir = os.path.dirname(__file__)

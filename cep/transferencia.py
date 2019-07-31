@@ -1,5 +1,6 @@
 import datetime
 from dataclasses import asdict, dataclass
+from typing import Optional
 
 import clabe
 import iso8601
@@ -33,6 +34,8 @@ class Transferencia:
     ):
         client = cls._validar(
             fecha, clave_rastreo, emisor, receptor, cuenta, monto)
+        if not client:
+            return None
         xml = cls._descargar(client, 'XML')
         resp = etree.fromstring(xml)
 
@@ -82,7 +85,7 @@ class Transferencia:
         receptor: str,
         cuenta: str,
         monto: float,
-    ) -> Client:
+    ) -> Optional[Client]:
         assert emisor in clabe.BANKS.values()
         assert receptor in clabe.BANKS.values()
         client = Client()  # Use new client to ensure thread-safeness
@@ -94,10 +97,12 @@ class Transferencia:
             cuenta=cuenta,
             monto=monto,
         )
-        client.post('/valida.do', request_body)
+        resp = client.post('/valida.do', request_body)
+        if b'no encontrada' in resp:
+            client = None  # No pudó validar
         return client
 
     @staticmethod
-    def _descargar(client, formato: str = 'PDF') -> bytes:
+    def _descargar(client: Client, formato: str = 'PDF') -> bytes:
         """formato puede ser PDF, XML o ZIP"""
         return client.get(f'/descarga.do?formato={formato}')
