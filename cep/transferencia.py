@@ -43,9 +43,8 @@ class Transferencia:
         beneficiario = Cuenta.from_etree(resp.find('Beneficiario'))
         concepto = resp.find('Beneficiario').get('Concepto')
         fecha_operacion = iso8601.parse_date(
-            resp.get('FechaOperacion') + ' ' + resp.get('Hora'), None
+            str(fecha) + ' ' + resp.get('Hora'), None
         )
-
         transferencia = cls(
             fecha_operacion=fecha_operacion,
             ordenante=ordenante,

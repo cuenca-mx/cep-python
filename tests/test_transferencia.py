@@ -35,8 +35,23 @@ def test_fail_validar_transferencia():
 
 @pytest.mark.vcr
 def test_descarga_pdf(transferencia):
+    print(transferencia)
     pdf = transferencia.descargar()
     file_dir = os.path.dirname(__file__)
     file_path = os.path.join(file_dir, 'CEP-20190412-CUENCA1555093850.pdf')
     with open(file_path, 'rb') as f:
         assert pdf == f.read()
+
+
+@pytest.mark.vcr
+def test_descagar_transferencia_con_fecha_distinta(transferencia):
+    tr = Transferencia.validar(
+        fecha=dt.date(2019, 8, 29),
+        clave_rastreo='MBAN01001908300003463991',
+        emisor='40012',  # BBVA
+        receptor='90646',  # STP
+        cuenta='646180157048010399',
+        monto=300,
+    )
+    assert type(tr.to_dict()) is dict
+    tr.descargar()
