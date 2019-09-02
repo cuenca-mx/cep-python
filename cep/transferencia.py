@@ -3,7 +3,6 @@ from dataclasses import asdict, dataclass
 from typing import Optional
 
 import clabe
-import iso8601
 from lxml import etree
 
 from .client import Client
@@ -42,8 +41,8 @@ class Transferencia:
         ordenante = Cuenta.from_etree(resp.find('Ordenante'))
         beneficiario = Cuenta.from_etree(resp.find('Beneficiario'))
         concepto = resp.find('Beneficiario').get('Concepto')
-        fecha_operacion = iso8601.parse_date(
-            str(fecha) + ' ' + resp.get('Hora'), None
+        fecha_operacion = datetime.datetime.fromisoformat(
+            str(fecha) + ' ' + resp.get('Hora')
         )
         transferencia = cls(
             fecha_operacion=fecha_operacion,
