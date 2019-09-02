@@ -35,7 +35,6 @@ def test_fail_validar_transferencia():
 
 @pytest.mark.vcr
 def test_descarga_pdf(transferencia):
-    print(transferencia)
     pdf = transferencia.descargar()
     file_dir = os.path.dirname(__file__)
     file_path = os.path.join(file_dir, 'CEP-20190412-CUENCA1555093850.pdf')
