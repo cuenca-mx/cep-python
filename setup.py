@@ -1,7 +1,7 @@
 import setuptools
 
 install_requirements = [
-    'requests>=2.21.0,<2.22.0',
+    'requests>=2.21.0,<2.25.0',
     'clabe',
     'lxml',
 ]
