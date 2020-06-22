@@ -25,3 +25,6 @@ jobs:
         - export PYTHONPATH=`pwd`
         - pytest --vcr-record=none
         - coveralls
+
+after_success:
+  - codecov
