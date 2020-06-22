@@ -35,9 +35,9 @@ jobs:
   coverage:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@git-actions-test
       - name: Setup Python
-        uses: actions/setup-python@master
+        uses: actions/setup-python@mgit-actions-test
         with:
           python-version: 3.8
       - name: Install dependencies
