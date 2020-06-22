@@ -14,7 +14,7 @@ try:
 except ModuleNotFoundError:
     install_requirements.append('dataclasses')
 
-test_requires = ['pytest', 'pytest-vcr', 'pycodestyle', 'pytest-cov',
+test_requires = ['pytest>=4.6', 'pytest-vcr', 'pycodestyle', 'pytest-cov',
                  'black', 'isort[pipfile]']
 
 with open('README.md', 'r') as f:
