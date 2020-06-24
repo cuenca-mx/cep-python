@@ -4,21 +4,19 @@ install_requirements = [
     'requests==2.24.0',
     'clabe==1.2.0',
     'lxml==4.5.1',
+    'dataclasses>=0.6;python_version<"3.7"',
 ]
 
-# dataclasses is currently only builtin for 3.7. There is a backport on PyPi.
-# There may be an official backport in the future, which is why we don't just
-# check the python version.
-try:
-    import dataclasses
-except ModuleNotFoundError:
-    install_requirements.append('dataclasses')
-
-test_requires = ['pytest==5.4.3',
-                 'pytest-vcr==1.0.2',
-                 'pytest-cov==2.10.0',
-                 'black==19.10b0',
-                 'isort[pipfile]==4.3.21']
+test_requires = (
+    [
+        'pytest==5.4.3',
+        'pytest-vcr==1.0.2',
+        'pytest-cov==2.10.0',
+        'black==19.10b0',
+        'flake8==3.8.3',
+        'isort[pipfile]==4.3.21',
+    ],
+)
 
 with open('README.md', 'r') as f:
     long_description = f.read()
@@ -43,5 +41,5 @@ setuptools.setup(
         'Programming Language :: Python :: 3.7',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
-    ]
+    ],
 )
