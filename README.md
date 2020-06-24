@@ -1,8 +1,8 @@
 # CEP
 
-[![Build Status](https://travis-ci.com/cuenca-mx/cep-python.svg?branch=master)](https://travis-ci.com/cuenca-mx/cep-python)
-[![Coverage Status](https://coveralls.io/repos/github/cuenca-mx/cep-python/badge.svg?branch=master)](https://coveralls.io/github/cuenca-mx/cep-python?branch=master)
-[![PyPI](https://img.shields.io/pypi/v/cepmex.svg)](https://pypi.org/project/cepmex/)
+[![test](https://github.com/cuenca-mx/cep-python/workflows/test/badge.svg)](https://github.com/cuenca-mx/cep-python/actions?query=workflow%3Atest)
+[![codecov](https://codecov.io/gh/cuenca-mx/cep-python/branch/master/graph/badge.svg)](https://codecov.io/gh/cuenca-mx/cep-python)
+[![PyPI](https://img.shields.io/pypi/v/cuenca.svg)](https://pypi.org/project/cuenca/)
 
 Python client library for CEP (http://www.banxico.org.mx/cep/)
 

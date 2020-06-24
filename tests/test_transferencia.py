@@ -28,7 +28,7 @@ def test_fail_validar_transferencia():
         emisor='90646',
         receptor='40012',
         cuenta='012180004643051249',
-        monto=1111111.00
+        monto=1111111.00,
     )
     assert tr is None
 

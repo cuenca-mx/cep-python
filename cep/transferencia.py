@@ -32,7 +32,8 @@ class Transferencia:
         monto: float,
     ):
         client = cls._validar(
-            fecha, clave_rastreo, emisor, receptor, cuenta, monto)
+            fecha, clave_rastreo, emisor, receptor, cuenta, monto
+        )
         if not client:
             return None
         xml = cls._descargar(client, 'XML')
@@ -68,7 +69,7 @@ class Transferencia:
                 self.emisor,
                 self.receptor,
                 self.beneficiario.numero,
-                self.monto
+                self.monto,
             )
         return self._descargar(client, formato)
 

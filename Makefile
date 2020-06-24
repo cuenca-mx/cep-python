@@ -2,7 +2,8 @@ SHELL := bash
 PATH := ./venv/bin:${PATH}
 PYTHON=python3.7
 PROJECT=cep
-
+isort = isort -rc -ac $(PROJECT) tests setup.py
+black = black -S -l 79 --target-version py37 $(PROJECT) tests setup.py
 
 all: test
 
@@ -16,12 +17,14 @@ install-test:
 test: clean install-test lint
 		python setup.py test
 
-polish:
-		black -S -l 79 **/*.py
-		isort -rc --atomic **/*.py
+format:
+		$(isort)
+		$(black)
 
 lint:
-		pycodestyle setup.py $(PROJECT)/ tests/
+		$(isort) --check-only
+		$(black) --check
+		flake8 $(PROJECT) tests setup.py
 
 clean:
 		find . -name '*.pyc' -exec rm -f {} +
