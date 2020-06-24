@@ -1,9 +1,9 @@
 import setuptools
 
 install_requirements = [
-    'requests>=2.21.0,<2.22.0',
-    'clabe',
-    'lxml',
+    'requests==2.24.0',
+    'clabe==1.2.0',
+    'lxml==4.5.1',
 ]
 
 # dataclasses is currently only builtin for 3.7. There is a backport on PyPi.
@@ -14,8 +14,12 @@ try:
 except ModuleNotFoundError:
     install_requirements.append('dataclasses')
 
-test_requires = ['pytest>=4.6', 'pytest-vcr', 'pycodestyle', 'pytest-cov',
-                 'black', 'isort[pipfile]']
+test_requires = ['pytest==5.4.3',
+                 'pytest-vcr==1.0.2',
+                 'pycodestyle==2.6.0',
+                 'pytest-cov==2.10.0',
+                 'black==19.10b0',
+                 'isort[pipfile]==4.3.21']
 
 with open('README.md', 'r') as f:
     long_description = f.read()
