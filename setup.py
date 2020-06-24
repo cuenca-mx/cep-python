@@ -16,7 +16,6 @@ except ModuleNotFoundError:
 
 test_requires = ['pytest==5.4.3',
                  'pytest-vcr==1.0.2',
-                 'pycodestyle==2.6.0',
                  'pytest-cov==2.10.0',
                  'black==19.10b0',
                  'isort[pipfile]==4.3.21']
