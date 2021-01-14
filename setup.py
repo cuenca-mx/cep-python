@@ -1,7 +1,7 @@
 import setuptools
 
 install_requirements = [
-    'requests==2.24.0',
+    'requests==2.25.0',
     'clabe==1.2.0',
     'lxml==4.5.1',
     'dataclasses>=0.6;python_version<"3.7"',
