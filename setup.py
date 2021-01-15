@@ -2,7 +2,7 @@ from importlib.machinery import SourceFileLoader
 
 from setuptools import find_packages, setup
 
-version = SourceFileLoader('version', 'stpmex/version.py').load_module()
+version = SourceFileLoader('version', 'cep/version.py').load_module()
 
 install_requirements = [
     'requests==2.24.0',
