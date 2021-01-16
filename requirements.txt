@@ -1,4 +1,4 @@
-requests==2.24.0
-clabe==1.2.0
+requests==2.25.0
+clabe==1.2.4
 lxml==4.6.2
 dataclasses>=0.6;python_version<"3.7"
