@@ -56,7 +56,7 @@ class Transferencia:
             receptor=receptor,
             sello=resp.get('sello'),
         )
-        transferencia.__client = client
+        setattr(transferencia, '__client', client)
         return transferencia
 
     def descargar(self, formato: str = 'PDF') -> bytes:
@@ -97,9 +97,8 @@ class Transferencia:
             monto=monto,
         )
         resp = client.post('/valida.do', request_body)
-        if b'no encontrada' in resp:
-            client = None  # No pudó validar
-        return client
+        # None si no pudó validar
+        return client if b'no encontrada' not in resp else None
 
     @staticmethod
     def _descargar(client: Client, formato: str = 'PDF') -> bytes:
