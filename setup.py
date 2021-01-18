@@ -23,7 +23,7 @@ setup(
     package_data=dict(cep=['py.typed']),
     python_requires='>=3.7',
     install_requires=[
-        'requests==2.25.0',
+        'requests==2.25.1',
         'clabe==1.2.4',
         'lxml==4.6.2',
         'dataclasses>=0.6;python_version<"3.7"',
