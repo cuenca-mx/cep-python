@@ -29,4 +29,5 @@ tr = Transferencia.validar(
     monto=8.17,
 )
 pdf = tr.descargar()
+tr.close()
 ```

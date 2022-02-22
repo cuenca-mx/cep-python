@@ -16,6 +16,7 @@ def test_validar_transferencia(transferencia):
         cuenta='012180004643051249',
         monto=8.17,
     )
+    tr.close()
     assert tr == transferencia
     assert type(tr.to_dict()) is dict
 
@@ -36,6 +37,7 @@ def test_fail_validar_transferencia():
 @pytest.mark.vcr
 def test_descarga_pdf(transferencia):
     pdf = transferencia.descargar()
+    transferencia.close()
     file_dir = os.path.dirname(__file__)
     file_path = os.path.join(file_dir, 'CEP-20190412-CUENCA1555093850.pdf')
     with open(file_path, 'rb') as f:
@@ -54,3 +56,4 @@ def test_descagar_transferencia_con_fecha_distinta(transferencia):
     )
     assert type(tr.to_dict()) is dict
     tr.descargar()
+    tr.close()

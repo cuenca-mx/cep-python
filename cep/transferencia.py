@@ -76,6 +76,12 @@ class Transferencia:
     def to_dict(self) -> dict:
         return asdict(self)
 
+    def close(self):
+        client: Optional[Client] = getattr(self, '__client', None)
+        if client:
+            client.close()
+            setattr(self, '__client', None)
+
     @staticmethod
     def _validar(
         fecha: datetime.date,
@@ -87,7 +93,6 @@ class Transferencia:
     ) -> Optional[Client]:
         assert emisor in clabe.BANKS.values()
         assert receptor in clabe.BANKS.values()
-        client = Client()  # Use new client to ensure thread-safeness
         request_body = dict(
             fecha=fecha.strftime('%d-%m-%Y'),
             criterio=clave_rastreo,
@@ -96,9 +101,17 @@ class Transferencia:
             cuenta=cuenta,
             monto=monto,
         )
-        resp = client.post('/valida.do', request_body)
-        # None si no pudó validar
-        return client if b'no encontrada' not in resp else None
+        # Use new client to ensure thread-safeness
+        client = Client()
+        is_success = False
+        try:
+            resp = client.post('/valida.do', request_body)
+            # None si no pudó validar
+            is_success = b'no encontrada' not in resp
+        finally:
+            if not is_success:
+                client.close()
+        return client if is_success else None
 
     @staticmethod
     def _descargar(client: Client, formato: str = 'PDF') -> bytes:

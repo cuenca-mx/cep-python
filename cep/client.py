@@ -19,6 +19,9 @@ class Client:
             tipoConsulta=1,
         )
 
+    def close(self):
+        self.session.close()
+
     def get(self, endpoint: str, **kwargs) -> bytes:
         return self.request('get', endpoint, {}, **kwargs)
 

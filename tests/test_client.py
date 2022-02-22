@@ -6,3 +6,4 @@ from requests.exceptions import HTTPError
 def test_http_error(client):
     with pytest.raises(HTTPError):
         client.get('/no/existe')
+    client.close()
