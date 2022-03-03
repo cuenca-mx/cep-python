@@ -18,6 +18,7 @@ pip install cepmex
 ```python
 from datetime import date
 
+import requests
 from cep import TransferenciaClient
 
 with TransferenciaClient() as client:
@@ -30,4 +31,8 @@ with TransferenciaClient() as client:
         monto=8.17,
     )
     pdf = client.descargar()
+
+# Optional: confirure requests session instance
+session = requests.Session()
+client = TransferenciaClient(session)
 ```
