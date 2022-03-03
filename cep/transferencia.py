@@ -31,12 +31,13 @@ class Transferencia:
         receptor: str,
         cuenta: str,
         monto: float,
-    ) -> Optional["Transferencia"]:
+    ) -> Optional['Transferencia']:
         """
         validar CEP.
 
         Deprecated, use TransferenciaClient instead.
         """
+        # Use new client to ensure thread-safeness
         client = TransferenciaClient()
         tr = client.validar(
             fecha=fecha,
@@ -50,7 +51,7 @@ class Transferencia:
             setattr(tr, '__client', client)
         return tr
 
-    def descargar(self, formato: str = "PDF") -> bytes:
+    def descargar(self, formato: str = 'PDF') -> bytes:
         """
         formato puede ser PDF, XML o ZIP.
 
@@ -108,14 +109,14 @@ class TransferenciaClient:
         )
         if not is_success:
             return None
-        xml = self._descargar("XML")
+        xml = self._descargar('XML')
         resp = etree.fromstring(xml)
 
-        ordenante = Cuenta.from_etree(resp.find("Ordenante"))
-        beneficiario = Cuenta.from_etree(resp.find("Beneficiario"))
-        concepto = resp.find("Beneficiario").get("Concepto")
+        ordenante = Cuenta.from_etree(resp.find('Ordenante'))
+        beneficiario = Cuenta.from_etree(resp.find('Beneficiario'))
+        concepto = resp.find('Beneficiario').get('Concepto')
         fecha_operacion = datetime.datetime.fromisoformat(
-            str(fecha) + " " + resp.get("Hora")
+            str(fecha) + " " + resp.get('Hora')
         )
         transferencia = Transferencia(
             fecha_operacion=fecha_operacion,
@@ -126,11 +127,11 @@ class TransferenciaClient:
             clave_rastreo=clave_rastreo,
             emisor=emisor,
             receptor=receptor,
-            sello=resp.get("sello"),
+            sello=resp.get('sello'),
         )
         return transferencia
 
-    def descargar(self, formato: str = "PDF") -> bytes:
+    def descargar(self, formato: str = 'PDF') -> bytes:
         """formato puede ser PDF, XML o ZIP."""
         return self._descargar(formato)
 
@@ -158,6 +159,6 @@ class TransferenciaClient:
         is_success = b"no encontrada" not in resp
         return is_success
 
-    def _descargar(self, formato: str = "PDF") -> bytes:
+    def _descargar(self, formato: str = 'PDF') -> bytes:
         """formato puede ser PDF, XML o ZIP."""
         return self.__client.get(f"/descarga.do?formato={formato}")
