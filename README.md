@@ -32,7 +32,7 @@ with TransferenciaClient() as client:
     )
     pdf = client.descargar()
 
-# Optional: confirure requests session instance
+# Optional: configure requests session instance
 session = requests.Session()
 client = TransferenciaClient(session)
 ```
