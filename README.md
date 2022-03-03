@@ -18,16 +18,16 @@ pip install cepmex
 ```python
 from datetime import date
 
-from cep import Transferencia
+from cep import TransferenciaClient
 
-tr = Transferencia.validar(
-    fecha=date(2019, 4, 12),
-    clave_rastreo='CUENCA1555093850',
-    emisor='90646',  # STP
-    receptor='40012',  # BBVA
-    cuenta='012180004643051249',
-    monto=8.17,
-)
-pdf = tr.descargar()
-tr.close()
+with TransferenciaClient() as client:
+    tr = client.validar(
+        fecha=date(2019, 4, 12),
+        clave_rastreo='CUENCA1555093850',
+        emisor='90646',  # STP
+        receptor='40012',  # BBVA
+        cuenta='012180004643051249',
+        monto=8.17,
+    )
+    pdf = client.descargar()
 ```
