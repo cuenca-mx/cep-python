@@ -3,7 +3,7 @@ import os
 
 import pytest
 
-from cep import Transferencia
+from cep import Transferencia, TransferenciaClient
 
 
 @pytest.mark.vcr
@@ -18,6 +18,23 @@ def test_validar_transferencia(transferencia):
     )
     assert tr == transferencia
     assert type(tr.to_dict()) is dict
+
+
+@pytest.mark.vcr
+def test_validar_transferencia_client(transferencia):
+    with TransferenciaClient() as client:
+        tr = client.validar(
+            fecha=dt.date(2019, 4, 12),
+            clave_rastreo='CUENCA1555093850',
+            emisor='90646',  # STP
+            receptor='40012',  # BBVA
+            cuenta='012180004643051249',
+            monto=8.17,
+        )
+        pdf = client.descargar()
+    assert tr == transferencia
+    assert type(tr.to_dict()) is dict
+    assert type(pdf) is bytes
 
 
 @pytest.mark.vcr

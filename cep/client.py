@@ -9,8 +9,8 @@ USER_AGENT = (
 class Client:
     base_url = 'http://www.banxico.org.mx/cep'
 
-    def __init__(self):
-        self.session = requests.Session()
+    def __init__(self, session: requests.Session = None):
+        self.session = session or requests.Session()
         self.session.headers['User-Agent'] = USER_AGENT
         self.base_data = dict(
             tipoCriterio='T',
@@ -18,6 +18,13 @@ class Client:
             captcha='c',
             tipoConsulta=1,
         )
+
+    def __enter__(self):
+        self.session.__enter__()
+        return self
+
+    def __exit__(self, *args, **kwargs):
+        self.session.__exit__(*args, **kwargs)
 
     def get(self, endpoint: str, **kwargs) -> bytes:
         return self.request('get', endpoint, {}, **kwargs)

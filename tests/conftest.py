@@ -7,7 +7,8 @@ from cep import Client, Cuenta, Transferencia
 
 @pytest.fixture
 def client():
-    yield Client()
+    with Client() as instance:
+        yield instance
 
 
 @pytest.fixture
