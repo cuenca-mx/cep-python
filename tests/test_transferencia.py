@@ -2,10 +2,8 @@ import datetime as dt
 import os
 
 import pytest
-from requests import HTTPError
 
 from cep import Transferencia
-from cep.exc import CepError, MaxRequestError
 
 
 @pytest.mark.vcr
@@ -56,36 +54,3 @@ def test_descagar_transferencia_con_fecha_distinta(transferencia):
     )
     assert type(tr.to_dict()) is dict
     tr.descargar()
-
-
-@pytest.mark.vcr
-def test_lanza_cep_error_para_errores_500():
-    try:
-        for i in range(10):
-            Transferencia.validar(
-                fecha=dt.date(2022, 4, 19),
-                clave_rastreo='CUENCA927820173168',
-                emisor='90646',  # STP
-                receptor='40012',  # BBVA
-                cuenta='012180000',
-                monto=0.01,
-            )
-    except CepError as exc:
-        assert type(exc.__cause__) is HTTPError
-        assert str(exc.__cause__) == (
-            '500 Server Error: Internal Server Error for url: '
-            'https://www.banxico.org.mx/cep/descarga.do?formato=XML'
-        )
-
-
-@pytest.mark.vcr
-def test_maximo_numero_de_requests():
-    with pytest.raises(MaxRequestError):
-        Transferencia.validar(
-            fecha=dt.date(2022, 4, 19),
-            clave_rastreo='CUENCA927820173168',
-            emisor='90646',  # STP
-            receptor='40012',  # BBVA
-            cuenta='012180000',
-            monto=0.01,
-        )
