@@ -4,9 +4,16 @@ from typing import Optional
 
 import clabe
 from lxml import etree
+from requests import HTTPError
 
 from .client import Client
 from .cuenta import Cuenta
+from .exc import CepError, MaxRequestError
+
+MAX_REQUEST_ERROR_MESSAGE = (
+    b'Lo sentimos, pero ha excedido el n&uacute;mero m&aacute;ximo '
+    b'de consultas en este portal'
+)
 
 
 @dataclass
@@ -36,7 +43,15 @@ class Transferencia:
         )
         if not client:
             return None
-        xml = cls._descargar(client, 'XML')
+
+        try:
+            xml = cls._descargar(client, 'XML')
+        except HTTPError as exc:
+            raise CepError from exc
+
+        if MAX_REQUEST_ERROR_MESSAGE in xml:
+            raise MaxRequestError
+
         resp = etree.fromstring(xml)
 
         ordenante = Cuenta.from_etree(resp.find('Ordenante'))
