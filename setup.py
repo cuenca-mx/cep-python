@@ -25,7 +25,7 @@ setup(
     install_requires=[
         'requests>=2.25,<2.27',
         'clabe>=1.2.4,<1.3',
-        'lxml>=4.6.2,<4.7',
+        'lxml>=4.6.2,<4.10',
         'dataclasses>=0.6;python_version<"3.7"',
     ],
     classifiers=[
