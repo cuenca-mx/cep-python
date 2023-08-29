@@ -7,7 +7,7 @@ USER_AGENT = (
 
 
 class Client:
-    base_url = 'http://www.banxico.org.mx/cep'
+    base_url = 'https://www.banxico.org.mx/cep'
 
     def __init__(self):
         self.session = requests.Session()
