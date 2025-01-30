@@ -8,7 +8,7 @@ from requests import HTTPError
 
 from .client import Client
 from .cuenta import Cuenta
-from .exc import CepError, MaxRequestError
+from .exc import CepError, IncompleteResponseError, MaxRequestError
 
 MAX_REQUEST_ERROR_MESSAGE = (
     b'Lo sentimos, pero ha excedido el n&uacute;mero m&aacute;ximo '
@@ -54,12 +54,19 @@ class Transferencia:
 
         resp = etree.fromstring(xml)
 
-        ordenante = Cuenta.from_etree(resp.find('Ordenante'))
-        beneficiario = Cuenta.from_etree(resp.find('Beneficiario'))
-        concepto = resp.find('Beneficiario').get('Concepto')
-        fecha_operacion = datetime.datetime.fromisoformat(
-            str(fecha) + ' ' + resp.get('Hora')
-        )
+        ordenante_element = resp.find('Ordenante')
+        beneficiario_element = resp.find('Beneficiario')
+
+        if ordenante_element is None or beneficiario_element is None:
+            raise IncompleteResponseError
+
+        ordenante = Cuenta.from_etree(ordenante_element)
+        beneficiario = Cuenta.from_etree(beneficiario_element)
+
+        concepto = beneficiario_element.get('Concepto') or ''
+        hora = resp.get('Hora') or '00:00:00'
+        fecha_operacion = datetime.datetime.fromisoformat(f'{fecha} {hora}')
+
         transferencia = cls(
             fecha_operacion=fecha_operacion,
             ordenante=ordenante,
@@ -69,7 +76,7 @@ class Transferencia:
             clave_rastreo=clave_rastreo,
             emisor=emisor,
             receptor=receptor,
-            sello=resp.get('sello'),
+            sello=resp.get('sello') or '',
         )
         setattr(transferencia, '__client', client)
         return transferencia
@@ -78,14 +85,19 @@ class Transferencia:
         """formato puede ser PDF, XML o ZIP"""
         client = getattr(self, '__client', None)
         if not client:
+            numero_cuenta = ''
+            if self.beneficiario is not None:
+                numero_cuenta = self.beneficiario.numero or ''
             client = self._validar(
                 self.fecha_operacion.date(),
                 self.clave_rastreo,
                 self.emisor,
                 self.receptor,
-                self.beneficiario.numero,
+                numero_cuenta,
                 self.monto,
             )
+            if not client:
+                raise CepError
         return self._descargar(client, formato)
 
     def to_dict(self) -> dict:

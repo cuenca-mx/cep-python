@@ -5,7 +5,8 @@ import pytest
 from requests import HTTPError
 
 from cep import Transferencia
-from cep.exc import CepError, MaxRequestError
+from cep.client import Client
+from cep.exc import CepError, IncompleteResponseError, MaxRequestError
 
 
 @pytest.mark.vcr
@@ -89,3 +90,41 @@ def test_maximo_numero_de_requests():
             cuenta='012180000',
             monto=0.01,
         )
+
+
+def test_incomplete_response(monkeypatch):
+    mock_post_response = b'Respuesta exitosa'
+    mock_get_response = (
+        b'<?xml version="1.0" encoding="UTF-8"?>'
+        b'<SPEI_Tercero FechaOperacion="2019-04-12" Hora="13:31:44">'
+        b'</SPEI_Tercero>'
+    )
+
+    def mock_post(self, path, data):
+        return mock_post_response
+
+    def mock_get(self, path):
+        return mock_get_response
+
+    monkeypatch.setattr(Client, 'post', mock_post)
+    monkeypatch.setattr(Client, 'get', mock_get)
+
+    with pytest.raises(IncompleteResponseError):
+        Transferencia.validar(
+            fecha=dt.date(2022, 4, 19),
+            clave_rastreo='CUENCA927820173168',
+            emisor='90646',  # STP
+            receptor='40012',  # BBVA
+            cuenta='012180000',
+            monto=0.01,
+        )
+
+
+def test_descarga_sin_client_validacion_fallida(monkeypatch, transferencia):
+    def mock_validar(*args, **kwargs):
+        return None
+
+    monkeypatch.setattr(Transferencia, '_validar', mock_validar)
+
+    with pytest.raises(CepError):
+        transferencia.descargar()

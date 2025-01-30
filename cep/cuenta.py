@@ -1,15 +1,16 @@
 from dataclasses import dataclass
+from typing import Optional
 
 from lxml import etree
 
 
 @dataclass
 class Cuenta:
-    nombre: str
-    tipo: str
-    banco: str
-    numero: str
-    rfc: str
+    nombre: Optional[str] = None
+    tipo: Optional[str] = None
+    banco: Optional[str] = None
+    numero: Optional[str] = None
+    rfc: Optional[str] = None
 
     @classmethod
     def from_etree(cls, element: etree._Element):
