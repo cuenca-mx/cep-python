@@ -14,7 +14,6 @@ class Client:
         self.session.headers['User-Agent'] = USER_AGENT
         self.base_data = dict(
             tipoCriterio='T',
-            receptorParticipante=0,
             captcha='c',
             tipoConsulta=1,
         )
