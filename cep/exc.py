@@ -5,6 +5,12 @@ class CepError(Exception):
     """
 
 
+class NotFoundError(CepError):
+    """
+    No se encontró el CEP de una transferencia
+    """
+
+
 class MaxRequestError(CepError):
     """
     Máximo número de peticiones alcanzadas para

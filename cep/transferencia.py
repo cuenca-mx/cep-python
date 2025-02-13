@@ -9,11 +9,15 @@ from requests import HTTPError
 
 from .client import Client
 from .cuenta import Cuenta
-from .exc import CepError, MaxRequestError
+from .exc import CepError, MaxRequestError, NotFoundError
 
 MAX_REQUEST_ERROR_MESSAGE = (
     b'Lo sentimos, pero ha excedido el n&uacute;mero m&aacute;ximo '
     b'de consultas en este portal'
+)
+
+NOT_FOUND_ERROR_MESSAGE = (
+    'No se encontró ningún pago con la información proporcionada'
 )
 
 
@@ -149,8 +153,9 @@ class Transferencia:
             receptorParticipante=1 if pago_a_banco else 0,
         )
         resp = client.post('/valida.do', request_body)
-        # None si no pudó validar
-        return client if b'no encontrada' not in resp else None
+        if NOT_FOUND_ERROR_MESSAGE in resp.decode('utf-8'):
+            raise NotFoundError
+        return client
 
     @staticmethod
     def _descargar(client: Client, formato: str = 'PDF') -> bytes:
