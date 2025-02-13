@@ -28,7 +28,7 @@ To run unit tests, use `pytest`.
 pytest
 ```
 
-### Usage
+## Usage
 
 ```python
 from datetime import date
