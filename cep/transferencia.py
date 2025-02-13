@@ -149,7 +149,10 @@ class Transferencia:
             receptorParticipante=1 if pago_a_banco else 0,
         )
         resp = client.post('/valida.do', request_body)
-        if NOT_FOUND_ERROR_MESSAGE in resp.decode('utf-8'):
+        if (
+            NOT_FOUND_ERROR_MESSAGE in resp.decode('utf-8')
+            or b'no encontrada' in resp
+        ):
             raise NotFoundError
         return client
 
