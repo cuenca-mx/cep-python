@@ -7,7 +7,7 @@
 Python client library for CEP (http://www.banxico.org.mx/cep/)
 
 
-## Instalación
+## Installation
 
 ```bash
 pip install cepmex
