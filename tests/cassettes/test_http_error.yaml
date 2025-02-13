@@ -12,7 +12,7 @@ interactions:
       - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
         like Gecko) Chrome/75.0.3770.142 Safari/537.36
     method: GET
-    uri: http://www.banxico.org.mx/cep/no/existe
+    uri: http://www.banxico.org.mx/cep-beta/no/existe
   response:
     body:
       string: ''
@@ -22,12 +22,12 @@ interactions:
       Content-Length:
       - '0'
       Location:
-      - http://www.anterior.banxico.org.mx/cep/no/existe
+      - https://www.banxico.org.mx/cep-beta/no/existe
       Server:
-      - BigIP
+      - mxbanxico
     status:
-      code: 302
-      message: Found
+      code: 307
+      message: Temporary Redirect
 - request:
     body: null
     headers:
@@ -41,66 +41,54 @@ interactions:
       - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
         like Gecko) Chrome/75.0.3770.142 Safari/537.36
     method: GET
-    uri: http://www.anterior.banxico.org.mx/cep/no/existe
+    uri: https://www.banxico.org.mx/cep-beta/no/existe
   response:
     body:
-      string: '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Draft//EN">
-
-        <HTML>
-
-        <HEAD>
-
-        <TITLE>Error 404--Not Found</TITLE>
-
-        </HEAD>
-
-        <BODY bgcolor="white">
-
-        <FONT FACE=Helvetica><BR CLEAR=all>
-
-        <TABLE border=0 cellspacing=5><TR><TD><BR CLEAR=all>
-
-        <FONT FACE="Helvetica" COLOR="black" SIZE="3"><H2>Error 404--Not Found</H2>
-
-        </FONT></TD></TR>
-
-        </TABLE>
-
-        <TABLE border=0 width=100% cellpadding=10><TR><TD VALIGN=top WIDTH=100% BGCOLOR=white><FONT
-        FACE="Courier New"><FONT FACE="Helvetica" SIZE="3"><H3>From RFC 2068 <i>Hypertext
-        Transfer Protocol -- HTTP/1.1</i>:</H3>
-
-        </FONT><FONT FACE="Helvetica" SIZE="3"><H4>10.4.5 404 Not Found</H4>
-
-        </FONT><P><FONT FACE="Courier New">The server has not found anything matching
-        the Request-URI. No indication is given of whether the condition is temporary
-        or permanent.</p><p>If the server does not wish to make this information available
-        to the client, the status code 403 (Forbidden) can be used instead. The 410
-        (Gone) status code SHOULD be used if the server knows, through some internally
-        configurable mechanism, that an old resource is permanently unavailable and
-        has no forwarding address.</FONT></P>
-
-        </FONT></TD></TR>
-
-        </TABLE>
-
-
-        </BODY>
-
-        </HTML>
-
-        '
+      string: ''
+    headers:
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '0'
+      Location:
+      - https://anterior.banxico.org.mx/cep-beta/no/existe
+      Server:
+      - mxbanxico
+    status:
+      code: 302
+      message: Moved Temporarily
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/75.0.3770.142 Safari/537.36
+    method: GET
+    uri: https://anterior.banxico.org.mx/cep-beta/no/existe
+  response:
+    body:
+      string: The resource you are looking for has been removed, had its name changed,
+        or is temporarily unavailable.
     headers:
       Content-Length:
-      - '1164'
+      - '103'
       Content-Type:
-      - text/html; charset=UTF-8
+      - text/html
       Date:
-      - Wed, 31 Jul 2019 22:10:25 GMT
+      - Thu, 13 Feb 2025 16:29:05 GMT
       Set-Cookie:
-      - ser29307111=709772970.50971.0000; path=/; Httponly
-      - TS014a759c=0189f484af0dfe57a482b0397c7dfa4de3ec8dccb82bf88c7c60badfd116214ac8e976e9160aa3f01c58847e5567305109721675e798547f39f5e434af9c6fddd649ea7867;
+      - TS27080ada027=083fd6a492ab2000b680ccb1da004b5b4fdaa8484afdb7be4f778f6c1b99695c85df7ec0db406647089836ce1e1130000f24c8692fcbf30a82791dd1a64a58930c0ee5d9bd2646eb613c5a9e383a5019333abdba92c2cf7c77f10a2b5a0f0e8a;
         Path=/
+      Strict-Transport-Security:
+      - max-age=480; preload
+      X-Robots-Tag:
+      - noindex, nofollow
     status:
       code: 404
       message: Not Found

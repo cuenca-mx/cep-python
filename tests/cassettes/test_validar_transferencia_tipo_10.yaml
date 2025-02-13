@@ -1,0 +1,179 @@
+interactions:
+- request:
+    body: tipoCriterio=T&captcha=c&tipoConsulta=1&fecha=08-11-2024&criterio=MIFELSPEI20241108102122835&emisor=40042&receptor=90723&cuenta=723969000011000077&monto=20912.98&receptorParticipante=0
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '184'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/75.0.3770.142 Safari/537.36
+    method: POST
+    uri: http://www.banxico.org.mx/cep-beta/valida.do
+  response:
+    body:
+      string: ''
+    headers:
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '0'
+      Location:
+      - https://www.banxico.org.mx/cep-beta/valida.do
+      Server:
+      - mxbanxico
+    status:
+      code: 307
+      message: Temporary Redirect
+- request:
+    body: tipoCriterio=T&captcha=c&tipoConsulta=1&fecha=08-11-2024&criterio=MIFELSPEI20241108102122835&emisor=40042&receptor=90723&cuenta=723969000011000077&monto=20912.98&receptorParticipante=0
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '184'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/75.0.3770.142 Safari/537.36
+    method: POST
+    uri: https://www.banxico.org.mx/cep-beta/valida.do
+  response:
+    body:
+      string: "\n<div class=\"bg-banxico title-bar\">\n    <i class=\"icono-header
+        icon-download\"></i>\n    Descargar CEP\n</div>\n<div class=\"generaComprobantes\"
+        style=\"width: 100%;margin-bottom: 78px;\">\n    <h2 style=\"text-align: center;\">Gracias
+        por utilizar el servicio de descarga de CEP</h2>\n    \n            <div id=\"dSeleccionaFormato\"
+        style=\"text-align: center; border: 0; display:block;\">Haga clic sobre el
+        &iacute;cono para descargar el CEP.<br /><br />\n                <a href=\"descarga.do?formato=PDF\"
+        class=\"boton boton-descarga-pdf\"><i class=\"icon-arrow-down\" style=\"vertical-align:
+        text-bottom;margin-right: 5px;\"></i>PDF</a>\n                <!--                <a
+        href=\"descarga.do?formato=PDF\" style=\"margin-right: 20px;\"><img src=\"images/btn-pdf.png\"
+        /></a>-->\n                <a href=\"descarga.do?formato=XML\" class=\"boton
+        boton-descarga-xml\" style=\"margin-right: 20px;\"><i class=\"icon-arrow-down\"
+        style=\"vertical-align: text-bottom;margin-right: 5px;\"></i>XML</a>\n                \n
+        \               <a href=\"descarga.do?formato=ZIP\" class=\"boton boton-descarga-zip\"><i
+        class=\"icon-arrow-down\" style=\"vertical-align: text-bottom;margin-right:
+        5px;\"></i>ZIP</a>\n                <!--                <a class=\"textoFormatosDescarga\">Otros
+        formatos de descarga [+]</a><br/>\n                                <div id=\"formatosDescarga\">\n
+        \                                   <a href=\"descarga.do?formato=XML\"><img
+        src=\"images/btn-xml.png\" /></a>\n                                </div>-->\n
+        \           </div>\n        \n</div>"
+    headers:
+      Content-Language:
+      - es-MX
+      Content-Length:
+      - '1508'
+      Content-Type:
+      - text/html; charset=UTF-8
+      Date:
+      - Thu, 13 Feb 2025 16:28:56 GMT
+      Set-Cookie:
+      - JSESSIONID=KqkAJFeVabaz6FdtU89dOzDOriO03FxzmGK4pRLnIfaYOso3-X-m!384618570;
+        path=/; secure; HttpOnly
+      - Hex39764011=!abrzCFNSrMjVqChFNVyFw/oTv40kxLgbyevifyZt7nyY4oWtUqNzlENYVgKMp4Cg82CfKB6REeG0ow==;
+        expires=Fri, 14-Feb-2025 00:28:56 GMT; path=/; Httponly
+      - 'TS012f422b=01ab44a5a8cba324c4c07df77604af67708d56d76ceae49e908b54580fda739e71105e4b96598a1dc6a67f4a3c2e277f3bd2e99da54022751db7485641cd0235ac8cfae241de82bbefb489590ea5ff9ab54b28553c;
+        Path=/; '
+      - TS604574e3027=083fd6a492ab2000766238b0d86d4608ba2cd3fdd459377b27f6aae462867dc0c5d2d16695b971330879a130dd113000d81c3309a7f7e5beea10aed0b8da5eaabb76b411c795ab9b706ec88cc7ef330caf03edbaa7f5953833f6243f7e1aac5f;
+        Path=/
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - Hex39764011=!abrzCFNSrMjVqChFNVyFw/oTv40kxLgbyevifyZt7nyY4oWtUqNzlENYVgKMp4Cg82CfKB6REeG0ow==;
+        TS012f422b=01ab44a5a8cba324c4c07df77604af67708d56d76ceae49e908b54580fda739e71105e4b96598a1dc6a67f4a3c2e277f3bd2e99da54022751db7485641cd0235ac8cfae241de82bbefb489590ea5ff9ab54b28553c;
+        TS604574e3027=083fd6a492ab2000766238b0d86d4608ba2cd3fdd459377b27f6aae462867dc0c5d2d16695b971330879a130dd113000d81c3309a7f7e5beea10aed0b8da5eaabb76b411c795ab9b706ec88cc7ef330caf03edbaa7f5953833f6243f7e1aac5f
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/75.0.3770.142 Safari/537.36
+    method: GET
+    uri: http://www.banxico.org.mx/cep-beta/descarga.do?formato=XML
+  response:
+    body:
+      string: ''
+    headers:
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '0'
+      Location:
+      - https://www.banxico.org.mx/cep-beta/descarga.do?formato=XML
+      Server:
+      - mxbanxico
+    status:
+      code: 307
+      message: Temporary Redirect
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - JSESSIONID=KqkAJFeVabaz6FdtU89dOzDOriO03FxzmGK4pRLnIfaYOso3-X-m!384618570;
+        Hex39764011=!abrzCFNSrMjVqChFNVyFw/oTv40kxLgbyevifyZt7nyY4oWtUqNzlENYVgKMp4Cg82CfKB6REeG0ow==;
+        TS012f422b=01ab44a5a8cba324c4c07df77604af67708d56d76ceae49e908b54580fda739e71105e4b96598a1dc6a67f4a3c2e277f3bd2e99da54022751db7485641cd0235ac8cfae241de82bbefb489590ea5ff9ab54b28553c;
+        TS604574e3027=083fd6a492ab2000766238b0d86d4608ba2cd3fdd459377b27f6aae462867dc0c5d2d16695b971330879a130dd113000d81c3309a7f7e5beea10aed0b8da5eaabb76b411c795ab9b706ec88cc7ef330caf03edbaa7f5953833f6243f7e1aac5f
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/75.0.3770.142 Safari/537.36
+    method: GET
+    uri: https://www.banxico.org.mx/cep-beta/descarga.do?formato=XML
+  response:
+    body:
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<SPEI_Tercero FechaOperacion=\"2024-11-08\"
+        Hora=\"10:34:45\" ClaveSPEI=\"90723\" sello=\"PzJHnHh9lK710NDRrZV1IVhUUGjrPtDKKNPpspKO2Cm588h09qEXL9gjCD4aBIggqM6I423EUgGgONc/jncVMhUGboeCgRvKdLIqZN4g6X0GJz7Ys5tpNKoKA7Am3OXEqWsNOJriMbmuofYiD4llrNmYkl4bC7/+FYhQeCzUNB/3ortfLjjrVi3ySIJkFL35r3Lxw04PXyHbxNKNwKyjduF070z3KZBnclzgPYPP1f7nFGVBAvWrl5+nGFbv15/n8Go0PeBdV+8VZYjmyASArK8n2piAUwRtSxH6HQmGXbuoOU8khZJWV6kpcaZN0Va5IjMJG6oqY1DbEeyJzuDM7Q==\"
+        numeroCertificado=\"00000100000100014853\" cadenaCDA=\"||10|08112024|08112024|103445|90723|MIFEL|NA|NA|NA|NA|Cuenca|Felipe
+        Lopez Hernandez|40|723969000011000077|LOHF890619HCSPRL05|CONCEPTO 10|0.00|20912.98|NA|NA|0|0|NA|0|0.00|NA|NA|NA|NA|NA|NA|NA|NA|NA|NA|NA|NA|NA|NA|NA|NA|NA|00000100000100014853||PzJHnHh9lK710NDRrZV1IVhUUGjrPtDKKNPpspKO2Cm588h09qEXL9gjCD4aBIggqM6I423EUgGgONc/jncVMhUGboeCgRvKdLIqZN4g6X0GJz7Ys5tpNKoKA7Am3OXEqWsNOJriMbmuofYiD4llrNmYkl4bC7/+FYhQeCzUNB/3ortfLjjrVi3ySIJkFL35r3Lxw04PXyHbxNKNwKyjduF070z3KZBnclzgPYPP1f7nFGVBAvWrl5+nGFbv15/n8Go0PeBdV+8VZYjmyASArK8n2piAUwRtSxH6HQmGXbuoOU8khZJWV6kpcaZN0Va5IjMJG6oqY1DbEeyJzuDM7Q==\"
+        claveRastreo=\"MIFELSPEI20241108102122835\">\r\n    <Beneficiario BancoReceptor=\"Cuenca\"
+        Nombre=\"Felipe Lopez Hernandez\" TipoCuenta=\"40\" Cuenta=\"723969000011000077\"
+        RFC=\"LOHF890619HCSPRL05\" Concepto=\"CONCEPTO 10\" IVA=\"0.00\" MontoPago=\"20912.98\"/>\r\n
+        \   <Ordenante BancoEmisor=\"MIFEL\" Nombre=\"NA\" TipoCuenta=\"-1\" Cuenta=\"NA\"
+        RFC=\"NA\"/>\r\n</SPEI_Tercero>"
+    headers:
+      Content-Disposition:
+      - attachment; filename=CEP-20241108-MIFELSPEI20241108102122835.xml
+      Content-Language:
+      - es-MX
+      Content-Length:
+      - '1457'
+      Content-Type:
+      - application/xml
+      Date:
+      - Thu, 13 Feb 2025 16:28:56 GMT
+      Set-Cookie:
+      - Hex39764011=!s63SpY47M/5mNhFFNVyFw/oTv40kxPBKEFC9PQzYgAdSQVj0hCtdletv50H54UxkNPIuhJRmFGlvbA==;
+        expires=Fri, 14-Feb-2025 00:28:56 GMT; path=/; Httponly
+      - 'TS012f422b=01ab44a5a86661d74c2c70d47257601e917f20984eeae49e908b54580fda739e71105e4b96598a1dc6a67f4a3c2e277f3bd2e99da54022751db7485641cd0235ac8cfae241a9a53bbb7e1ed1bad48790de91a8e988;
+        Path=/; '
+      - TS604574e3027=083fd6a492ab200020ee72dfeff0b089c1547759f97f3d0935779bedc6ef0e90265da4f6e6caca1e0879960e001130004cc14bfb60b16624ea10aed0b8da5eaabb76b411c795ab9b706ec88cc7ef330caf03edbaa7f5953833f6243f7e1aac5f;
+        Path=/
+    status:
+      code: 200
+      message: OK
+version: 1

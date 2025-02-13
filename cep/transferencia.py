@@ -1,7 +1,7 @@
 import datetime
 from dataclasses import asdict, dataclass
 from decimal import Decimal
-from typing import Optional, cast
+from typing import cast
 
 import clabe
 from lxml import etree
@@ -51,8 +51,6 @@ class Transferencia:
         client = cls._validar(
             fecha, clave_rastreo, emisor, receptor, cuenta, monto, pago_a_banco
         )
-        if not client:
-            return None
 
         try:
             xml = cls._descargar(client, 'XML')
@@ -123,8 +121,6 @@ class Transferencia:
                 self.monto,
                 self.pago_a_banco,
             )
-            if not client:
-                raise CepError
         return self._descargar(client, formato)
 
     def to_dict(self) -> dict:
@@ -139,7 +135,7 @@ class Transferencia:
         cuenta: str,
         monto: Decimal,
         pago_a_banco: bool = False,
-    ) -> Optional[Client]:
+    ) -> Client:
         assert emisor in clabe.BANKS.values()
         assert receptor in clabe.BANKS.values()
         client = Client()  # Use new client to ensure thread-safeness
