@@ -1,5 +1,7 @@
 import requests
 
+from .config import Config
+
 USER_AGENT = (
     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 '
     '(KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36'
@@ -7,8 +9,6 @@ USER_AGENT = (
 
 
 class Client:
-    base_url = 'http://www.banxico.org.mx/cep'
-
     def __init__(self):
         self.session = requests.Session()
         self.session.headers['User-Agent'] = USER_AGENT
@@ -28,7 +28,7 @@ class Client:
     def request(
         self, method: str, endpoint: str, data: dict, **kwargs
     ) -> bytes:
-        url = self.base_url + endpoint
+        url = Config.BASE_URL + endpoint
         response = self.session.request(method, url, data=data, **kwargs)
         if not response.ok:
             response.raise_for_status()
