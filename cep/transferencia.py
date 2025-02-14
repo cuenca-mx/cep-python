@@ -86,19 +86,13 @@ class Transferencia:
 
         # FechaAbono is not explicitly provided in response.
         # It can be extracted from the CDA string.
-        fecha_abono_str = (
-            f"{cadena_cda[4][4:]}-{cadena_cda[4][2:4]}-{cadena_cda[4][:2]}"
+        fecha_abono = datetime.datetime.strptime(
+            cadena_cda[4] + cadena_cda[5], '%d%m%Y%H%M%S'
         )
-
         tipo_pago = cadena_cda[2]
 
         fecha_operacion = datetime.date.fromisoformat(
             resp.attrib['FechaOperacion']
-        )
-
-        hora_abono = resp.attrib['Hora']
-        fecha_abono = datetime.datetime.fromisoformat(
-            f'{fecha_abono_str} {hora_abono}'
         )
 
         iva = beneficiario_element.attrib['IVA']

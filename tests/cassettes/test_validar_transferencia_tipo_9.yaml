@@ -16,39 +16,6 @@ interactions:
       - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
         like Gecko) Chrome/75.0.3770.142 Safari/537.36
     method: POST
-    uri: http://www.banxico.org.mx/cep-beta/valida.do
-  response:
-    body:
-      string: ''
-    headers:
-      Connection:
-      - Keep-Alive
-      Content-Length:
-      - '0'
-      Location:
-      - https://www.banxico.org.mx/cep-beta/valida.do
-      Server:
-      - mxbanxico
-    status:
-      code: 307
-      message: Temporary Redirect
-- request:
-    body: tipoCriterio=T&captcha=c&tipoConsulta=1&fecha=08-11-2024&criterio=RASPEIOAT202411081215739794&emisor=40021&receptor=90723&cuenta=723969000011000077&monto=29778.66&receptorParticipante=0
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '185'
-      Content-Type:
-      - application/x-www-form-urlencoded
-      User-Agent:
-      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
-        like Gecko) Chrome/75.0.3770.142 Safari/537.36
-    method: POST
     uri: https://www.banxico.org.mx/cep-beta/valida.do
   response:
     body:
@@ -79,15 +46,15 @@ interactions:
       Content-Type:
       - text/html; charset=UTF-8
       Date:
-      - Thu, 13 Feb 2025 16:28:55 GMT
+      - Fri, 14 Feb 2025 21:44:49 GMT
       Set-Cookie:
-      - JSESSIONID=iMUAJFSg-WF2LTRvDlfy1C36mvkS5phZ2YgSvJZtr2qrYQLbVEmw!384618570;
+      - JSESSIONID=NPkGa-fkEZ18iuWRzlQvfZJnLMRwkclLtKg4unARZTX_zivsmNfg!-2094109768;
         path=/; secure; HttpOnly
-      - Hex39764011=!myM/lVgY3kziqnFFNVyFw/oTv40kxHw869Xv/E6lpAB2QCpOXbuwn05KLUGMGpsVBcs3dfaMHcDTMA==;
-        expires=Fri, 14-Feb-2025 00:28:55 GMT; path=/; Httponly
-      - 'TS012f422b=01ab44a5a8c81303e078dbe7b500e8900b98103cc2ee6e5c984a41e1f97d912a7a3d9bd7dad93195c0841523f7b949565a9e3fa87adbec46caab889b87180912386c16b3715eb10714603c4fac1a87838e174839b4;
+      - Hex39764011=!2LHyIv57P5ElFThFNVyFw/oTv40kxAbYezcwDCHGPFT0EYcJnsEyQWGfXUWZTL20kRfMOd/lsl8Nbw==;
+        expires=Sat, 15-Feb-2025 05:44:49 GMT; path=/; Httponly
+      - 'TS012f422b=01ab44a5a8b7f737c85fcfb6fbd36760f052c1f7c762b3913f244eee0c2ebe25365c5ad42f167118eb5d3e931da186a0321eec625a4c27efb945b5ffa2d24016a2e41d9d04b8e03ed5fbbf55599465b1ea4388ad06;
         Path=/; '
-      - TS604574e3027=083fd6a492ab20004be4d5a1e4a6f42156d71b9ba1433728f7f5c98761ee84403b26c3e170469261087056573c11300026c1f684c8103543a78be9b0d0a68d1bbf071a693f3da0cc5134d5e0ceb56511aa20b37693a55461c0a5911f1a827863;
+      - TS604574e3027=083fd6a492ab2000080cd804174ffbc0e2b93f972a0b90f8afbb613c34d6bd34f56f0f5c07268c82082dc5e84d113000f5ae5e141f73b572828d45d0639e5d32c7812438b8aacdf34bb7b049b16fd5fef05e71da78bb58050cdb072bba7672ab;
         Path=/
     status:
       code: 200
@@ -102,43 +69,10 @@ interactions:
       Connection:
       - keep-alive
       Cookie:
-      - Hex39764011=!myM/lVgY3kziqnFFNVyFw/oTv40kxHw869Xv/E6lpAB2QCpOXbuwn05KLUGMGpsVBcs3dfaMHcDTMA==;
-        TS012f422b=01ab44a5a8c81303e078dbe7b500e8900b98103cc2ee6e5c984a41e1f97d912a7a3d9bd7dad93195c0841523f7b949565a9e3fa87adbec46caab889b87180912386c16b3715eb10714603c4fac1a87838e174839b4;
-        TS604574e3027=083fd6a492ab20004be4d5a1e4a6f42156d71b9ba1433728f7f5c98761ee84403b26c3e170469261087056573c11300026c1f684c8103543a78be9b0d0a68d1bbf071a693f3da0cc5134d5e0ceb56511aa20b37693a55461c0a5911f1a827863
-      User-Agent:
-      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
-        like Gecko) Chrome/75.0.3770.142 Safari/537.36
-    method: GET
-    uri: http://www.banxico.org.mx/cep-beta/descarga.do?formato=XML
-  response:
-    body:
-      string: ''
-    headers:
-      Connection:
-      - Keep-Alive
-      Content-Length:
-      - '0'
-      Location:
-      - https://www.banxico.org.mx/cep-beta/descarga.do?formato=XML
-      Server:
-      - mxbanxico
-    status:
-      code: 307
-      message: Temporary Redirect
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Connection:
-      - keep-alive
-      Cookie:
-      - JSESSIONID=iMUAJFSg-WF2LTRvDlfy1C36mvkS5phZ2YgSvJZtr2qrYQLbVEmw!384618570;
-        Hex39764011=!myM/lVgY3kziqnFFNVyFw/oTv40kxHw869Xv/E6lpAB2QCpOXbuwn05KLUGMGpsVBcs3dfaMHcDTMA==;
-        TS012f422b=01ab44a5a8c81303e078dbe7b500e8900b98103cc2ee6e5c984a41e1f97d912a7a3d9bd7dad93195c0841523f7b949565a9e3fa87adbec46caab889b87180912386c16b3715eb10714603c4fac1a87838e174839b4;
-        TS604574e3027=083fd6a492ab20004be4d5a1e4a6f42156d71b9ba1433728f7f5c98761ee84403b26c3e170469261087056573c11300026c1f684c8103543a78be9b0d0a68d1bbf071a693f3da0cc5134d5e0ceb56511aa20b37693a55461c0a5911f1a827863
+      - JSESSIONID=NPkGa-fkEZ18iuWRzlQvfZJnLMRwkclLtKg4unARZTX_zivsmNfg!-2094109768;
+        Hex39764011=!2LHyIv57P5ElFThFNVyFw/oTv40kxAbYezcwDCHGPFT0EYcJnsEyQWGfXUWZTL20kRfMOd/lsl8Nbw==;
+        TS012f422b=01ab44a5a8b7f737c85fcfb6fbd36760f052c1f7c762b3913f244eee0c2ebe25365c5ad42f167118eb5d3e931da186a0321eec625a4c27efb945b5ffa2d24016a2e41d9d04b8e03ed5fbbf55599465b1ea4388ad06;
+        TS604574e3027=083fd6a492ab2000080cd804174ffbc0e2b93f972a0b90f8afbb613c34d6bd34f56f0f5c07268c82082dc5e84d113000f5ae5e141f73b572828d45d0639e5d32c7812438b8aacdf34bb7b049b16fd5fef05e71da78bb58050cdb072bba7672ab
       User-Agent:
       - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
         like Gecko) Chrome/75.0.3770.142 Safari/537.36
@@ -166,13 +100,13 @@ interactions:
       Content-Type:
       - application/xml
       Date:
-      - Thu, 13 Feb 2025 16:28:56 GMT
+      - Fri, 14 Feb 2025 21:44:50 GMT
       Set-Cookie:
-      - Hex39764011=!h3BRlWI5U4+XhKJFNVyFw/oTv40kxLig3zq5jNCbFspdLsBF4GAAr0HHKvjwiLFAY6kUov9657mHmQ==;
-        expires=Fri, 14-Feb-2025 00:28:56 GMT; path=/; Httponly
-      - 'TS012f422b=01ab44a5a88a9102cb5847614b303f0766ca7fb5e2ee6e5c984a41e1f97d912a7a3d9bd7dad93195c0841523f7b949565a9e3fa87adbec46caab889b87180912386c16b37166358635575d7488adad14bea373f3d4;
+      - Hex39764011=!wkSIl8HXpMMpseFFNVyFw/oTv40kxOtTpmkEboeQRAAczYAoiCSb2R+fIZBq0pEBjXYsjXy3QJnV7g==;
+        expires=Sat, 15-Feb-2025 05:44:50 GMT; path=/; Httponly
+      - 'TS012f422b=01ab44a5a8d6738851396d3b3a820c2f8c2e370a7362b3913f244eee0c2ebe25365c5ad42f167118eb5d3e931da186a0321eec625a4c27efb945b5ffa2d24016a2e41d9d04e36e8f167962c8e05860b57b68e7521e;
         Path=/; '
-      - TS604574e3027=083fd6a492ab20007e3d8a6ccef1f4aee1bbc1abf403e7b744588106d109acff53370ca69d03ad9e08d54484eb113000a8070c11f5f4a512ea10aed0b8da5eaa8042f8dd19fc485e9ae39560be2f40ad127412e5f89382c3d39bd0ce54fcfc25;
+      - TS604574e3027=083fd6a492ab2000647891438113d10b4975fab5bb51ee4b3d459e632ad4b740f0b2847012442d87089728ec7f1130000e464e4cd3cd8a55534aa44ab3ec04168b804671b8d9f54e25f7f3721405e77c85bd8818591db635d7cf11a1701958a1;
         Path=/
     status:
       code: 200
