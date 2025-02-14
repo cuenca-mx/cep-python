@@ -5,11 +5,16 @@ import pytest
 from requests.exceptions import HTTPError
 
 from cep import Transferencia
-from cep.exc import CepError, MaxRequestError, NotFoundError
+from cep.exc import (
+    CepError,
+    CepNotAvailableError,
+    MaxRequestError,
+    NotFoundError,
+)
 
 
 @pytest.mark.vcr
-def test_fail_validar_transferencia():
+def test_fail_validar_transferencia_pago():
     with pytest.raises(NotFoundError):
         Transferencia.validar(
             fecha=dt.date(2019, 1, 1),
@@ -18,6 +23,19 @@ def test_fail_validar_transferencia():
             receptor='90723',
             cuenta='012180004643051249',
             monto=1111111.00,
+        )
+
+
+@pytest.mark.vcr
+def test_fail_validar_transferencia_operacion():
+    with pytest.raises(NotFoundError):
+        Transferencia.validar(
+            fecha=dt.date(2024, 11, 8),
+            clave_rastreo='BiB202411081016248XXX',
+            emisor='37166',
+            receptor='90723',
+            cuenta='723969000011000077',
+            monto=3414.95,
         )
 
 
@@ -59,6 +77,19 @@ def test_maximo_numero_de_requests():
             receptor='90723',
             cuenta='723969000011000077',
             monto=20912.98,
+        )
+
+
+@pytest.mark.vcr
+def test_validar_transferencia_encontrada_sin_cep():
+    with pytest.raises(CepNotAvailableError):
+        Transferencia.validar(
+            fecha=dt.date(2024, 11, 6),
+            clave_rastreo='COMPROPAG2024110610833063',
+            emisor='90728',
+            receptor='90723',
+            cuenta='723969000011000077',
+            monto=17584.28,
         )
 
 

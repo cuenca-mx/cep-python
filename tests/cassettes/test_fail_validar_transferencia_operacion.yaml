@@ -1,0 +1,130 @@
+interactions:
+- request:
+    body: tipoCriterio=T&captcha=c&tipoConsulta=1&fecha=08-11-2024&criterio=BiB202411081016248XXX&emisor=37166&receptor=90723&cuenta=723969000011000077&monto=3414.95&receptorParticipante=0
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '178'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/75.0.3770.142 Safari/537.36
+    method: POST
+    uri: http://www.banxico.org.mx/cep-beta/valida.do
+  response:
+    body:
+      string: ''
+    headers:
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '0'
+      Location:
+      - https://www.banxico.org.mx/cep-beta/valida.do
+      Server:
+      - mxbanxico
+    status:
+      code: 307
+      message: Temporary Redirect
+- request:
+    body: tipoCriterio=T&captcha=c&tipoConsulta=1&fecha=08-11-2024&criterio=BiB202411081016248XXX&emisor=37166&receptor=90723&cuenta=723969000011000077&monto=3414.95&receptorParticipante=0
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '178'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/75.0.3770.142 Safari/537.36
+    method: POST
+    uri: https://www.banxico.org.mx/cep-beta/valida.do
+  response:
+    body:
+      string: "\n<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=no\"
+        />\n<meta charset=\"utf-8\" /> \n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9;
+        IE=8; IE=7; IE=edge\" />\n<link rel=\"apple-touch-icon\" href=\"images/icon.png\"/>\n<link
+        rel=\"shortcut icon\" href=\"images/icon.png\">\n<!--Bootstrap-->\n<!--<link
+        href=\"//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css\"
+        rel=\"stylesheet\">\n<link rel=stylesheet href=\"css/bootstrap/bootstrap.min.css\"
+        type=\"text/css\">\n<link rel=\"stylesheet\" href=\"css/bootstrap/dataTables.bootstrap.min.css\"
+        type=\"text/css\" >-->\n<link rel=stylesheet href=\"css/fuentes.css\" type=\"text/css\">\n\n
+        \   <link rel=stylesheet href=\"css/cep-min.css\" type=\"text/css\">\n\n<!--
+        JQuery -->\n<script type=\"text/javascript\" src=\"js/jquery-3.6.1.min.js\"></script>\n<script
+        type=\"text/javascript\" src=\"js/jquery-ui.min.js\"></script>\n<script type=\"text/javascript\"
+        src=\"js/jquery/jquery.dataTables.min.js\"></script>\n<script type=\"text/javascript\"
+        src=\"js/datepicker-es.js\"></script>\n\n<!-- Validations -->\n<script type=\"text/javascript\"
+        src=\"js/validations/validateInput.js\"></script>\n<script type=\"text/javascript\"
+        src=\"js/validations/validateEvents.js\"></script>\n<script type=\"text/javascript\"
+        src=\"js/validations/validateWriting.js\"></script>\n<script type=\"text/javascript\"
+        src=\"js/validations/validationBussines.js\"></script>\n\n<!--Bootstrap-->\n<!--<script
+        src=\"js/bootstrap/bootstrap.min.js\"></script>-->\n<!--Bootbox Alert-->\n<!--<script
+        type=\"text/javascript\" src=\"js/bootstrap/bootbox.min.js\"></script>-->\n<!--Bootstrap
+        Tables-->\n<!--<script type=\"text/javascript\" src=\"js/bootstrap/dataTables.bootstrap.min.js\"></script>-->\n\r\n<meta
+        http-equiv=\"Content-type\" content=\"text/html; charset=UTF-8\" /> \r\n<style
+        type=\"text/css\">\r\n    /* 20230216_AJRG_GSC_Se cambia versi\xF3n de la
+        dependencia cep-generador-comprobante (remover dependencia itext) */\r\n    @media
+        screen and (min-width: 481px) and (min-height: 551px) { /* no es movil */\r\n
+        \       .contenido-wide {\r\n            width: 1100px !important;\r\n            max-width:
+        1100px !important;\r\n            /*\r\n            width: 1050px !important;\r\n
+        \           max-width: 1050px !important;\r\n            */\r\n        }\r\n
+        \       .contenido-wide table {\r\n             width: fit-content !important;\r\n
+        \       }\r\n    }\r\n    \r\n    #consultaMISPEI {\r\n        padding: 0
+        !important;\r\n        margin: 15px !important;\r\n    }\r\n    \r\n    #htmlCEP
+        tr {\r\n        padding-top: 2px;\r\n        padding-bottom: 2px;\r\n    }\r\n</style>\r\n<div
+        class=\"bg-banxico title-bar\">\r\n    <i class=\"icono-header icon-list\"></i>\r\n
+        \   Informaci&oacute;n del estado del pago\r\n</div>\r\n<div class=\"cuerpo-msg\">\r\n
+        \   <div id=\"consultaMISPEI\" style=\"padding: 15px;box-sizing: border-box;overflow-x:
+        auto;\">\r\n        <!-- <div class=\"info\" style=\"margin-bottom: 10px;\"><center><strong>Lo
+        sentimos, por el momento no es posible generar el CEP. Operaci\xF3n no encontrada.
+        El SPEI no ha recibido una orden de pago que cumpla con el criterio de b\xFAsqueda
+        especificado. Se recomienda verificar la informaci\xF3n o consulte con su
+        instituci\xF3n financiera.</strong></center></div> -->\r\n            <div
+        class=\"info\" style=\"margin-bottom: 10px;\"><center><strong>Lo sentimos,
+        por el momento no es posible generar el CEP. Operaci\xF3n no encontrada. El
+        SPEI no ha recibido una orden de pago que cumpla con el criterio de b\xFAsqueda
+        especificado. Se recomienda verificar la informaci\xF3n o consulte con su
+        instituci\xF3n financiera.</strong></center></div>\r\n                    \r\n
+        \       <br><br>\r\n        \r\n    </div>               \r\n           \r\n</div>\r\n\r\n<script>\r\n
+        \   $(document).ready(function () {\r\n        if ($(\".operacionesLiquidados\").length
+        || $(\".operacionesDevueltas\").length) {\r\n            $(\".cuerpo-msg\").addClass('contenido-wide');\r\n
+        \       }\r\n    });\r\n    \r\n//    $(function () {\r\n//        $(\"#htmlCEP\").val($(\"#consultaMISPEI\").html());\r\n//
+        \   });\r\n\r\n    function start_download() {\r\n//        if ($(\".operacionesLiquidados\").length
+        || $(\".operacionesDevueltas\").length) {\r\n//            $(\".cuerpo-msg\").removeClass('contenido-wide');\r\n//
+        \           $(\"#htmlCEP\").val($(\"#desc_Liquidado\").html());\r\n//        }\r\n
+        \       // evt.preventDefault();\r\n        var $htmlToSend = $('#consultaMISPEI').clone();\r\n
+        \       $(\"#htmlCEP\").val($htmlToSend.html());\r\n        return true;\r\n
+        \   }\r\n\r\n</script>"
+    headers:
+      Content-Language:
+      - es-MX
+      Content-Length:
+      - '4353'
+      Content-Type:
+      - text/html; charset=UTF-8
+      Date:
+      - Fri, 14 Feb 2025 18:25:00 GMT
+      Set-Cookie:
+      - JSESSIONID=IqkFtPWscAfquVAu7B3iqmwSXS3jX_8YkJuMjv6-i8rvv4GXfXwB!-2094109768;
+        path=/; secure; HttpOnly
+      - Hex39764011=!V/M13Dw+vDYMB7VFNVyFw/oTv40kxNntM9Cc6wJni3k2NRMa0yVJOoPIZGPZ2yztNhLv43+jmR6nNQ==;
+        expires=Sat, 15-Feb-2025 02:25:00 GMT; path=/; Httponly
+      - 'TS012f422b=01ab44a5a8be8c98dfb666a6f6f8ac94c01d11b86c3651ff0ecbb7343ae81fabb06ab50ece65a041d2c42843ec30791e5846f4307852112d127b1109f72e1adbeed6e77195de2e64a2ee899ab39b3f1723e25db831;
+        Path=/; '
+      - TS604574e3027=083fd6a492ab2000d7d560a374810648a3ca846f27b698b39c5d5afa98be331ec435cd0bce871651080d38975e113000fb177e6916cb13c6cbec0e53e11f475bd3705e75f10b4be26a04b395977daca653a3e6e7d4a51bfa3f0ccfe876dba4de;
+        Path=/
+    status:
+      code: 200
+      message: OK
+version: 1

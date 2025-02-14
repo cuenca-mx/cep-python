@@ -9,15 +9,24 @@ from requests import HTTPError
 
 from .client import Client
 from .cuenta import Cuenta
-from .exc import CepError, MaxRequestError, NotFoundError
+from .exc import CepError, CepNotAvailableError, MaxRequestError, NotFoundError
 
 MAX_REQUEST_ERROR_MESSAGE = (
     b'Lo sentimos, pero ha excedido el n&uacute;mero m&aacute;ximo '
     b'de consultas en este portal'
 )
 
-NOT_FOUND_ERROR_MESSAGE = (
+NO_PAYMENT_ERROR_MESSAGE = (
     'No se encontró ningún pago con la información proporcionada'
+)
+
+NO_OPERATION_ERROR_MESSAGE = (
+    'El SPEI no ha recibido una orden de pago que cumpla con el '
+    'criterio de búsqueda especificado'
+)
+
+NO_CEP_ERROR_MESSAGE = (
+    'Con la información proporcionada se identificó el siguiente pago'
 )
 
 
@@ -149,10 +158,11 @@ class Transferencia:
             receptorParticipante=1 if pago_a_banco else 0,
         )
         resp = client.post('/valida.do', request_body)
-        if (
-            NOT_FOUND_ERROR_MESSAGE in resp.decode('utf-8')
-            or b'no encontrada' in resp
-        ):
+        if NO_CEP_ERROR_MESSAGE in resp.decode('utf-8'):
+            raise CepNotAvailableError
+        if NO_PAYMENT_ERROR_MESSAGE in resp.decode(
+            'utf-8'
+        ) or NO_OPERATION_ERROR_MESSAGE in resp.decode('utf-8'):
             raise NotFoundError
         return client
 
