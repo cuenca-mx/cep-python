@@ -2,10 +2,11 @@ import datetime
 
 import pytest
 
-from cep import Client, Config, Cuenta, Transferencia
+import cep
+from cep import Client, Cuenta, Transferencia
 
 # Use beta endpoint for testing
-Config.BASE_URL = 'https://www.banxico.org.mx/cep-beta'
+cep.configure(beta=True)
 
 
 @pytest.fixture
