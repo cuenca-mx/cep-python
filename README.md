@@ -33,7 +33,7 @@ pytest
 ```python
 from datetime import date
 from cep import Transferencia
-from cep.exc import NotFoundError
+from cep.exc import TransferNotFoundError
 
 try:
     tr = Transferencia.validar(
@@ -47,7 +47,7 @@ try:
     pdf = tr.descargar()
     with open('CUENCA1555093850.pdf', 'wb') as f:
         f.write(pdf)
-except NotFoundError as e:
+except TransferNotFoundError as e:
     print('No se encontro la transferencia')
 ```
 
