@@ -18,9 +18,9 @@ pip install cepmex
 You can use a staging environment to test the library:
 
 ```python
-from cep import Config
+import cep
 
-Config.BASE_URL = 'http://www.banxico.org.mx/cep-beta'
+cep.configure(beta=True)
 ```
 
 To run unit tests, use `pytest`.
