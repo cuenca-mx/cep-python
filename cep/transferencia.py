@@ -157,11 +157,13 @@ class Transferencia:
             receptorParticipante=1 if pago_a_banco else 0,
         )
         resp = client.post('/valida.do', request_body)
-        if NO_CEP_ERROR_MESSAGE in resp.decode('utf-8'):
+        decoded_resp = resp.decode('utf-8')
+        if NO_CEP_ERROR_MESSAGE in decoded_resp:
             raise CepNotAvailableError
-        if NO_PAYMENT_ERROR_MESSAGE in resp.decode(
-            'utf-8'
-        ) or NO_OPERATION_ERROR_MESSAGE in resp.decode('utf-8'):
+        if (
+            NO_PAYMENT_ERROR_MESSAGE in decoded_resp
+            or NO_OPERATION_ERROR_MESSAGE in decoded_resp
+        ):
             raise TransferNotFoundError
         return client
 
