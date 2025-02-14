@@ -5,9 +5,10 @@ class CepError(Exception):
     """
 
 
-class NotFoundError(CepError):
+class TransferNotFoundError(CepError):
     """
-    No se encontró el CEP de una transferencia
+    No se encontró la transferencia con
+    los datos proporcionados
     """
 
 

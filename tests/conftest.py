@@ -5,7 +5,7 @@ import pytest
 from cep import Client, Config, Cuenta, Transferencia
 
 # Use beta endpoint for testing
-Config.BASE_URL = 'http://www.banxico.org.mx/cep-beta'
+Config.BASE_URL = 'https://www.banxico.org.mx/cep-beta'
 
 
 @pytest.fixture

@@ -79,7 +79,7 @@ tr.descargar(formato='XML')
 
 ## Exceptions
 
-- `NotFoundError`: The transfer was not found.
+- `TransferNotFoundError`: The transfer was not found.
 - `MaxRequestError`: The maximum number of requests has been reached.
 - `CepNotAvailableError`: The transfer was found, but the CEP is not available.
 

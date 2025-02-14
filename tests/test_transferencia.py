@@ -9,13 +9,13 @@ from cep.exc import (
     CepError,
     CepNotAvailableError,
     MaxRequestError,
-    NotFoundError,
+    TransferNotFoundError,
 )
 
 
 @pytest.mark.vcr
 def test_fail_validar_transferencia_pago():
-    with pytest.raises(NotFoundError):
+    with pytest.raises(TransferNotFoundError):
         Transferencia.validar(
             fecha=dt.date(2019, 1, 1),
             clave_rastreo='invalid-clave',
@@ -28,7 +28,7 @@ def test_fail_validar_transferencia_pago():
 
 @pytest.mark.vcr
 def test_fail_validar_transferencia_operacion():
-    with pytest.raises(NotFoundError):
+    with pytest.raises(TransferNotFoundError):
         Transferencia.validar(
             fecha=dt.date(2024, 11, 8),
             clave_rastreo='BiB202411081016248XXX',

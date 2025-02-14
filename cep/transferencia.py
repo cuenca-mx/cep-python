@@ -9,7 +9,12 @@ from requests import HTTPError
 
 from .client import Client
 from .cuenta import Cuenta
-from .exc import CepError, CepNotAvailableError, MaxRequestError, NotFoundError
+from .exc import (
+    CepError,
+    CepNotAvailableError,
+    MaxRequestError,
+    TransferNotFoundError,
+)
 
 MAX_REQUEST_ERROR_MESSAGE = (
     b'Lo sentimos, pero ha excedido el n&uacute;mero m&aacute;ximo '
@@ -163,7 +168,7 @@ class Transferencia:
         if NO_PAYMENT_ERROR_MESSAGE in resp.decode(
             'utf-8'
         ) or NO_OPERATION_ERROR_MESSAGE in resp.decode('utf-8'):
-            raise NotFoundError
+            raise TransferNotFoundError
         return client
 
     @staticmethod
