@@ -33,7 +33,7 @@ def transferencia_tipo_1():
             numero='723969000011000077',
             rfc='LOHF890619HCSPRL05',
         ),
-        monto=3414.95,
+        monto=341495,  # In cents
         iva=0.00,
         concepto='CONCEPTO PAGO TIPO 1',
         clave_rastreo='BiB202411081016248360',

@@ -22,7 +22,7 @@ def test_fail_validar_transferencia_pago():
             emisor='37166',
             receptor='90723',
             cuenta='012180004643051249',
-            monto=1111111.00,
+            monto=111111100,
         )
 
 
@@ -35,7 +35,7 @@ def test_fail_validar_transferencia_operacion():
             emisor='37166',
             receptor='90723',
             cuenta='723969000011000077',
-            monto=3414.95,
+            monto=341495,
         )
 
 
@@ -60,7 +60,7 @@ def test_lanza_cep_error_para_errores_500():
                 emisor='37166',
                 receptor='90723',
                 cuenta='723969000011000077',
-                monto=25208.26,
+                monto=2520826,
             )
     except CepError as exc:
         assert type(exc.__cause__) is HTTPError
@@ -76,7 +76,7 @@ def test_maximo_numero_de_requests():
             emisor='40042',
             receptor='90723',
             cuenta='723969000011000077',
-            monto=20912.98,
+            monto=2091298,
         )
 
 
@@ -89,7 +89,7 @@ def test_validar_transferencia_encontrada_sin_cep():
             emisor='90728',
             receptor='90723',
             cuenta='723969000011000077',
-            monto=17584.28,
+            monto=1758428,
         )
 
 
@@ -101,7 +101,7 @@ def test_validar_transferencia_tipo_1(transferencia_tipo_1):
         emisor='37166',
         receptor='90723',
         cuenta='723969000011000077',
-        monto=3414.95,
+        monto=341495,  # In cents
     )
     assert tr is not None
     assert tr.tipo_pago == 1
@@ -117,7 +117,7 @@ def test_validar_transferencia_tipo_3():
         emisor='37166',
         receptor='90723',
         cuenta='566180000553286528',
-        monto=10802.62,
+        monto=1080262,
     )
     assert tr is not None
     assert tr.beneficiario.rfc == 'NA'
@@ -132,7 +132,7 @@ def test_validar_transferencia_tipo_4():
         emisor='40021',
         receptor='90723',
         cuenta='021180043534353354',
-        monto=17187.23,
+        monto=1718723,
         pago_a_banco=True,
     )
     assert tr is not None
@@ -150,7 +150,7 @@ def test_validar_transferencia_tipo_5():
         emisor='40021',
         receptor='90723',
         cuenta='723969000011000077',
-        monto=27529.89,
+        monto=2752989,
     )
     assert tr is not None
     assert tr.ordenante.nombre == 'NA'
@@ -167,7 +167,7 @@ def test_validar_transferencia_tipo_6():
         emisor='40021',
         receptor='90723',
         cuenta='723969000011000077',
-        monto=27532.17,
+        monto=2753217,
     )
     assert tr is not None
     assert tr.ordenante.nombre == 'NA'
@@ -185,7 +185,7 @@ def test_validar_transferencia_tipo_8():
         emisor='40042',
         receptor='90723',
         cuenta='723969000011000077',
-        monto=28523.96,
+        monto=2852396,
     )
     assert tr is not None
     assert tr.tipo_pago == 8
@@ -199,7 +199,7 @@ def test_validar_transferencia_tipo_9():
         emisor='40021',
         receptor='90723',
         cuenta='723969000011000077',
-        monto=29778.66,
+        monto=2977866,
     )
     assert tr is not None
     assert tr.beneficiario.rfc == 'NA'
@@ -214,7 +214,7 @@ def test_validar_transferencia_tipo_10():
         emisor='40042',
         receptor='90723',
         cuenta='723969000011000077',
-        monto=20912.98,
+        monto=2091298,
     )
     assert tr is not None
     assert tr.ordenante.rfc == 'NA'
@@ -231,7 +231,7 @@ def test_validar_transferencia_tipo_11():
         emisor='40042',
         receptor='90723',
         cuenta='723969000011000077',
-        monto=9858.7,
+        monto=985870,
     )
     assert tr is not None
     assert tr.ordenante.rfc == 'NA'
@@ -248,7 +248,7 @@ def test_validar_transferencia_tipo_12():
         emisor='2001',
         receptor='90723',
         cuenta='723969000011000077',
-        monto=1.25,
+        monto=125,
     )
     assert tr is not None
     assert tr.tipo_pago == 12
@@ -262,7 +262,7 @@ def test_validar_transferencia_tipo_30():
         emisor='37166',
         receptor='90723',
         cuenta='723969000011000077',
-        monto=25208.26,
+        monto=2520826,
     )
     assert tr is not None
     assert tr.tipo_pago == 30
@@ -276,7 +276,7 @@ def test_validar_transferencia_tipo_31():
         emisor='40059',
         receptor='90723',
         cuenta='059180019535000152',
-        monto=6593.15,
+        monto=659315,
         pago_a_banco=True,
     )
     assert tr is not None
@@ -294,7 +294,7 @@ def test_validar_transferencia_tipo_35():
         emisor='40062',
         receptor='90723',
         cuenta='723969000011000077',
-        monto=13887.7,
+        monto=1388770,
     )
     assert tr is not None
     assert tr.tipo_pago == 35
@@ -308,7 +308,7 @@ def test_validar_transferencia_tipo_36():
         emisor='40113',
         receptor='90723',
         cuenta='723969000011000077',
-        monto=21683.76,
+        monto=2168376,
     )
     assert tr is not None
     assert tr.tipo_pago == 36

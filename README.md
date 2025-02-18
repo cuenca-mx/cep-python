@@ -42,7 +42,7 @@ try:
         emisor='90646',  # STP
         receptor='40012',  # BBVA
         cuenta='012180004643051249',
-        monto=8.17,
+        monto=817, # In cents
     )
     pdf = tr.descargar()
     with open('CUENCA1555093850.pdf', 'wb') as f:
@@ -61,7 +61,7 @@ Use the `validar` method to validate a transfer with the following parameters:
 - `emisor` (`str`): Transfer sender bank code.
 - `receptor` (`str`): Transfer receiver bank code.
 - `cuenta` (`str`): Transfer account number.
-- `monto` (`Decimal`): Transfer amount.
+- `monto` (`int`): Transfer amount **in cents**.
 
 ### Optional Parameters:
 - `pago_a_banco` (`bool`, default=`False`): Set to `True` for transfer types 4 and 31.

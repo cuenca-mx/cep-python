@@ -41,7 +41,7 @@ class Transferencia:
     fecha_abono: datetime.datetime
     ordenante: Cuenta
     beneficiario: Cuenta
-    monto: Decimal
+    monto: int  # In cents
     iva: Decimal
     concepto: str
     clave_rastreo: str
@@ -51,6 +51,10 @@ class Transferencia:
     tipo_pago: int
     pago_a_banco: bool = False
 
+    @property
+    def monto_pesos(self) -> float:
+        return self.monto / 100
+
     @classmethod
     def validar(
         cls,
@@ -59,7 +63,7 @@ class Transferencia:
         emisor: str,
         receptor: str,
         cuenta: str,
-        monto: Decimal,
+        monto: int,
         pago_a_banco: bool = False,
     ):
         client = cls._validar(
@@ -132,7 +136,9 @@ class Transferencia:
         return self._descargar(client, formato)
 
     def to_dict(self) -> dict:
-        return asdict(self)
+        data = asdict(self)
+        data['monto_pesos'] = self.monto_pesos
+        return data
 
     @staticmethod
     def _validar(
@@ -141,7 +147,7 @@ class Transferencia:
         emisor: str,
         receptor: str,
         cuenta: str,
-        monto: Decimal,
+        monto: int,
         pago_a_banco: bool = False,
     ) -> Client:
         assert emisor in clabe.BANKS.values()
@@ -153,7 +159,7 @@ class Transferencia:
             emisor=emisor,
             receptor=receptor,
             cuenta=cuenta,
-            monto=monto,
+            monto=monto / 100,  # Convert cents to pesos
             receptorParticipante=1 if pago_a_banco else 0,
         )
         resp = client.post('/valida.do', request_body)
