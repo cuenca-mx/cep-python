@@ -1,0 +1,82 @@
+interactions:
+- request:
+    body: tipoCriterio=T&captcha=c&tipoConsulta=1&fecha=01-01-2019&criterio=invalid-clave&emisor=37166&receptor=90723&cuenta=012180004643051249&monto=1111111.0&receptorParticipante=0
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '172'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/75.0.3770.142 Safari/537.36
+    method: POST
+    uri: http://www.banxico.org.mx/cep-beta/valida.do
+  response:
+    body:
+      string: ''
+    headers:
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '0'
+      Location:
+      - https://www.banxico.org.mx/cep-beta/valida.do
+      Server:
+      - mxbanxico
+    status:
+      code: 307
+      message: Temporary Redirect
+- request:
+    body: tipoCriterio=T&captcha=c&tipoConsulta=1&fecha=01-01-2019&criterio=invalid-clave&emisor=37166&receptor=90723&cuenta=012180004643051249&monto=1111111.0&receptorParticipante=0
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '172'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/75.0.3770.142 Safari/537.36
+    method: POST
+    uri: https://www.banxico.org.mx/cep-beta/valida.do
+  response:
+    body:
+      string: "\r\n<div class=\"bg-banxico title-bar\">\r\n    <i class=\"icono-header
+        icon-warning3\"></i>\r\n    Error\r\n</div>\r\n<div id=\"#error_div\">\r\n
+        \   <div class=\"info\">\r\n        <p style=\"padding: 10px;max-width: 500px;
+        text-align: center;\">\r\n            [BE] No se encontr\xF3 ning\xFAn pago
+        con la informaci\xF3n proporcionada. Verifique e intente nuevamente.\r\n        </p>\r\n
+        \   </div>\r\n</div>\r\n<input type=\"hidden\" name=\"varHideCaptcha\" value=\"true\"/>\r\n"
+    headers:
+      Content-Language:
+      - es-MX
+      Content-Length:
+      - '432'
+      Content-Type:
+      - text/html; charset=UTF-8
+      Date:
+      - Fri, 14 Feb 2025 18:24:59 GMT
+      Set-Cookie:
+      - JSESSIONID=i2UFtPQJ_qSQA4LOoo5U8qT4BaGkDWrx98jdKjqqx0jFe-LWqrIm!384618570;
+        path=/; secure; HttpOnly
+      - Hex39764011=!XCF7PmHmzc2GmLpFNVyFw/oTv40kxIBv9ZJrUZn6/gd08ilD6Cp9OeDi7rdTe4T4vOjBkoi+d6KV0A==;
+        expires=Sat, 15-Feb-2025 02:25:00 GMT; path=/; Httponly
+      - 'TS012f422b=01ab44a5a861a3409779d131ae7adc973ed697f37166d6ea395011d0d355d063db0b567fa99bfbcb3f99ce7d76c8eeed8989d95d444624d9064ac79d07386af62c3b3fe6738f8c605526f2ae874ab733a34e6a01de;
+        Path=/; '
+      - TS604574e3027=083fd6a492ab20000a9f766d9f752ee0ee19d7263690d52f4f7108add91b9501da46d3315b57e4f908f7953b9c113000b83fb6dfc65e99efcbec0e53e11f475b2b5e72011020258f921584a6eb7633dc7071f17a4db8d0b7121424dfdccfb23d;
+        Path=/
+    status:
+      code: 200
+      message: OK
+version: 1

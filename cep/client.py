@@ -1,3 +1,5 @@
+from typing import ClassVar
+
 import requests
 
 USER_AGENT = (
@@ -5,16 +7,22 @@ USER_AGENT = (
     '(KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36'
 )
 
+BASE_URL = 'https://www.banxico.org.mx/cep'
+BASE_URL_BETA = 'https://www.banxico.org.mx/cep-beta'
+
+
+def configure(beta=False):
+    Client.base_url = BASE_URL_BETA if beta else BASE_URL
+
 
 class Client:
-    base_url = 'http://www.banxico.org.mx/cep'
+    base_url: ClassVar[str] = BASE_URL
 
     def __init__(self):
         self.session = requests.Session()
         self.session.headers['User-Agent'] = USER_AGENT
         self.base_data = dict(
             tipoCriterio='T',
-            receptorParticipante=0,
             captcha='c',
             tipoConsulta=1,
         )
@@ -29,7 +37,7 @@ class Client:
     def request(
         self, method: str, endpoint: str, data: dict, **kwargs
     ) -> bytes:
-        url = self.base_url + endpoint
+        url = Client.base_url + endpoint
         response = self.session.request(method, url, data=data, **kwargs)
         if not response.ok:
             response.raise_for_status()

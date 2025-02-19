@@ -1,0 +1,116 @@
+interactions:
+- request:
+    body: tipoCriterio=T&captcha=c&tipoConsulta=1&fecha=07-11-2024&criterio=EPRU723PRENOM24110744VL0000001&emisor=2001&receptor=90723&cuenta=723969000011000077&monto=1.25&receptorParticipante=0
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '183'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/75.0.3770.142 Safari/537.36
+    method: POST
+    uri: https://www.banxico.org.mx/cep-beta/valida.do
+  response:
+    body:
+      string: "\n<div class=\"bg-banxico title-bar\">\n    <i class=\"icono-header
+        icon-download\"></i>\n    Descargar CEP\n</div>\n<div class=\"generaComprobantes\"
+        style=\"width: 100%;margin-bottom: 78px;\">\n    <h2 style=\"text-align: center;\">Gracias
+        por utilizar el servicio de descarga de CEP</h2>\n    \n            <div id=\"dSeleccionaFormato\"
+        style=\"text-align: center; border: 0; display:block;\">Haga clic sobre el
+        &iacute;cono para descargar el CEP.<br /><br />\n                <a href=\"descarga.do?formato=PDF\"
+        class=\"boton boton-descarga-pdf\"><i class=\"icon-arrow-down\" style=\"vertical-align:
+        text-bottom;margin-right: 5px;\"></i>PDF</a>\n                <!--                <a
+        href=\"descarga.do?formato=PDF\" style=\"margin-right: 20px;\"><img src=\"images/btn-pdf.png\"
+        /></a>-->\n                <a href=\"descarga.do?formato=XML\" class=\"boton
+        boton-descarga-xml\" style=\"margin-right: 20px;\"><i class=\"icon-arrow-down\"
+        style=\"vertical-align: text-bottom;margin-right: 5px;\"></i>XML</a>\n                \n
+        \               <a href=\"descarga.do?formato=ZIP\" class=\"boton boton-descarga-zip\"><i
+        class=\"icon-arrow-down\" style=\"vertical-align: text-bottom;margin-right:
+        5px;\"></i>ZIP</a>\n                <!--                <a class=\"textoFormatosDescarga\">Otros
+        formatos de descarga [+]</a><br/>\n                                <div id=\"formatosDescarga\">\n
+        \                                   <a href=\"descarga.do?formato=XML\"><img
+        src=\"images/btn-xml.png\" /></a>\n                                </div>-->\n
+        \           </div>\n        \n</div>"
+    headers:
+      Content-Language:
+      - es-MX
+      Content-Length:
+      - '1508'
+      Content-Type:
+      - text/html; charset=UTF-8
+      Date:
+      - Tue, 18 Feb 2025 21:45:23 GMT
+      Set-Cookie:
+      - JSESSIONID=sJYbBdmN9XKIgwp5SWsl7Ziagckfy_N84GSCblZ0aGCixt7itvSs!384618570;
+        path=/; secure; HttpOnly
+      - Hex39764011=!drLCZDOIqO7+sAdFNVyFw/oTv40kxIyXx5M3Nt6SW7WkorfRQkw4n/hlasogX68DLLHDTgzG/CIVjQ==;
+        expires=Wed, 19-Feb-2025 05:45:23 GMT; path=/; Httponly
+      - 'TS012f422b=01ab44a5a8333dfb5b3a478378d4f806a888144f5005645c1080177cc546ab217ee3ce5c4c9ee4bf9b3ce0e755b23e2a1378211f77d5b23afef81e9270ab93b5c33c656b146b1f8393200d71832acae80a84e10864;
+        Path=/; '
+      - TS604574e3027=083fd6a492ab20009cfe58845976187bac351486108f8d77698008567dc3227b42919c37c89115e5085ec94444113000f0c0ff84c70cac8f9c24028523439ed2e20f12c4deceee468000d524684358e101942834297b0282da41bb727aded9fe;
+        Path=/
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - JSESSIONID=sJYbBdmN9XKIgwp5SWsl7Ziagckfy_N84GSCblZ0aGCixt7itvSs!384618570;
+        Hex39764011=!drLCZDOIqO7+sAdFNVyFw/oTv40kxIyXx5M3Nt6SW7WkorfRQkw4n/hlasogX68DLLHDTgzG/CIVjQ==;
+        TS012f422b=01ab44a5a8333dfb5b3a478378d4f806a888144f5005645c1080177cc546ab217ee3ce5c4c9ee4bf9b3ce0e755b23e2a1378211f77d5b23afef81e9270ab93b5c33c656b146b1f8393200d71832acae80a84e10864;
+        TS604574e3027=083fd6a492ab20009cfe58845976187bac351486108f8d77698008567dc3227b42919c37c89115e5085ec94444113000f0c0ff84c70cac8f9c24028523439ed2e20f12c4deceee468000d524684358e101942834297b0282da41bb727aded9fe
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/75.0.3770.142 Safari/537.36
+    method: GET
+    uri: https://www.banxico.org.mx/cep-beta/descarga.do?formato=XML
+  response:
+    body:
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<SPEI_Tercero FechaOperacion=\"2024-11-08\"
+        Hora=\"18:02:30\" ClaveSPEI=\"90723\" sello=\"U35y7eoFMzRZUPEUKHh3rJYxK9W1ZdjEzb5SqM3jEej7xoI2/9q0ThwUyW7qBYQVGf5J7OMDd4cTxWzDdDtv6wgx/D9CkWHt8z6TOV1l/etYcwq4//TeSYx13zEmduABfSKB1rCM5FVCzxzieeT3WZrFMrIcpDAx5+t1XubX9xzGLkfL+y51j3JmO4rK4ZdUC22d9R8CJCf2gUcmis2++lQpj4WfZUUl/XunsJjasH99Unt+v4QnsocKrWRq1pDlJClOggRullaHE1FXpaNYFmjinbmRb+RvtwvmhvL8LTGNFXrB4hDIE8NIqikmIrXJEgErU3DCLnUPUziRVyn2bg==\"
+        numeroCertificado=\"00000100000100014853\" cadenaCDA=\"||12|08112024|07112024|180230|90723|BANXICO|Aplicaion
+        generadora Pruebas EPRU D11257|40|723969000011000077|TATV730615HDFPCC01|Cuenca|Felipe
+        Lopez Hernandez|40|723969000011000077|LOHF890619HCSPRL05|CONCEPTO DE PAGO
+        CONCEPTO DE PAGO D11257|0.00|1.25|NA|NA|0|0|NA|0|0.00|NA|NA|NA|NA|NA|NA|NA|NA|NA|NA|NA|NA|NA|NA|NA|NA|NA|00000100000100014853||U35y7eoFMzRZUPEUKHh3rJYxK9W1ZdjEzb5SqM3jEej7xoI2/9q0ThwUyW7qBYQVGf5J7OMDd4cTxWzDdDtv6wgx/D9CkWHt8z6TOV1l/etYcwq4//TeSYx13zEmduABfSKB1rCM5FVCzxzieeT3WZrFMrIcpDAx5+t1XubX9xzGLkfL+y51j3JmO4rK4ZdUC22d9R8CJCf2gUcmis2++lQpj4WfZUUl/XunsJjasH99Unt+v4QnsocKrWRq1pDlJClOggRullaHE1FXpaNYFmjinbmRb+RvtwvmhvL8LTGNFXrB4hDIE8NIqikmIrXJEgErU3DCLnUPUziRVyn2bg==\"
+        claveRastreo=\"EPRU723PRENOM24110744VL0000001\">\r\n    <Beneficiario BancoReceptor=\"Cuenca\"
+        Nombre=\"Felipe Lopez Hernandez\" TipoCuenta=\"40\" Cuenta=\"723969000011000077\"
+        RFC=\"LOHF890619HCSPRL05\" Concepto=\"CONCEPTO DE PAGO CONCEPTO DE PAGO D11257\"
+        IVA=\"0.00\" MontoPago=\"1.25\"/>\r\n    <Ordenante BancoEmisor=\"BANXICO\"
+        Nombre=\"Aplicaion generadora Pruebas EPRU D11257\" TipoCuenta=\"40\" Cuenta=\"723969000011000077\"
+        RFC=\"TATV730615HDFPCC01\"/>\r\n</SPEI_Tercero>"
+    headers:
+      Content-Disposition:
+      - attachment; filename=CEP-20241108-EPRU723PRENOM24110744VL0000001.xml
+      Content-Language:
+      - es-MX
+      Content-Length:
+      - '1655'
+      Content-Type:
+      - application/xml
+      Date:
+      - Tue, 18 Feb 2025 21:45:23 GMT
+      Set-Cookie:
+      - Hex39764011=!7VIqJ+1vL3wr32tFNVyFw/oTv40kxPlUXxd5Z6LqMaPvZNkc3+sVzg+Vafs6Cg6I/m1WY9DZyFT4lA==;
+        expires=Wed, 19-Feb-2025 05:45:23 GMT; path=/; Httponly
+      - 'TS012f422b=01ab44a5a82c477acc3d41a14e5dfab119b76c79dc05645c1080177cc546ab217ee3ce5c4c9ee4bf9b3ce0e755b23e2a1378211f77d5b23afef81e9270ab93b5c33c656b1494867c5c6461b7991d58b3157efefb32;
+        Path=/; '
+      - TS604574e3027=083fd6a492ab2000e543d6ce76c87fb7379efdc5de8e91cfbfc49931e5c82b24c7e923be113fd285084e6523341130006408c3183cd9b43b9c24028523439ed2e20f12c4deceee468000d524684358e101942834297b0282da41bb727aded9fe;
+        Path=/
+    status:
+      code: 200
+      message: OK
+version: 1

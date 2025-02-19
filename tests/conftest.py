@@ -2,7 +2,11 @@ import datetime
 
 import pytest
 
+import cep
 from cep import Client, Cuenta, Transferencia
+
+# Use beta endpoint for testing
+cep.configure(beta=True)
 
 
 @pytest.fixture
@@ -11,34 +15,39 @@ def client():
 
 
 @pytest.fixture
-def transferencia():
+def transferencia_tipo_1():
     yield Transferencia(
-        fecha_operacion=datetime.datetime(2019, 4, 12, 13, 31, 44),
+        fecha_operacion=datetime.date(2024, 11, 8),
+        fecha_abono=datetime.datetime(2024, 11, 8, 10, 53, 36),
         ordenante=Cuenta(
-            nombre='Matin Tamizi',
-            tipo='40',
-            banco='STP',
-            numero='646180157042875763',
-            rfc='ND',
+            nombre='Pruebas Bienestar',
+            tipo_cuenta='40',
+            banco='BaBien',
+            numero='166180026480316602',
+            rfc='GAJH931011I41',
         ),
         beneficiario=Cuenta(
-            nombre='MATIN TAMIZI',
-            tipo='40',
-            banco='BBVA BANCOMER',
-            numero='012180004643051249',
-            rfc='TAMA840916669',
+            nombre='Felipe Lopez Hernandez',
+            tipo_cuenta='40',
+            banco='Cuenca',
+            numero='723969000011000077',
+            rfc='LOHF890619HCSPRL05',
         ),
-        monto=8.17,
-        clave_rastreo='CUENCA1555093850',
-        concepto='Matin',
-        emisor='90646',
-        receptor='40012',
+        monto=341495,  # In cents
+        iva=0.00,
+        concepto='CONCEPTO PAGO TIPO 1',
+        clave_rastreo='BiB202411081016248360',
+        emisor='37166',
+        receptor='90723',
         sello=(
-            'X8YFvAfKZhV72datpHzKes/AaOyLqgs0uDWlVqrDy8i0FV96ajZY17Hz9X35c7'
-            'z/TrSSvw6BQiqVWbJGG5xriNn8PK4pFKF6nyCEr6uGQ6FuF7YqAD6tUK55BBKT'
-            'dqF3j+qummKguTHJyttR4xMwmOpiuwkgXuUFaEEHiO+UjgIk7BVzkULkZdpciL'
-            'rY4czMZhdqpQ7if0udu2BxWI99eU9ZqaAtILyt39MtCPObu61D4A6SFnw6JwsU'
-            'Rm2wCZ4KSYzex18Re3Hrg+BLri5drlgcPSG5/OBeE2omlcuZTQqd5iUzRt/XVg'
-            '33arK4M8h2hbcfU/xwtYEDBQ6Jewh+tg=='
+            'WtvkPvCMGKSaj+B/XPUnVnahJXwCfASJ1u3cUsU0+MYSaXV2K0a'
+            'EC5otVJntu80bbsmdaVqI1P+V7BbXr3WJDKPtFJnVTXmuRalInP'
+            'UZ6e0rs5GOO45ZktZ0CYnxoLqt1kgX5oIlRchh/xXVfHAPy964K'
+            'sARiCTr8/BeaiBeImjhcXh6CKwmO23cGiydQ3OxGPagnijfZE/F'
+            'PWPJ2z5NBOIH9Qo4wg/UuDZEVl5ekmUZlarFZ+sT8F+RkrRYr6I'
+            'P0x+5Y7y53qMGqoBy0x6L3wI9rwhue4Nrcmk40pQGjsQR+FBKtS'
+            'etSaWZhz/32cbulWzEk9wug8LfUij+KNtU3Q=='
         ),
+        tipo_pago=1,
+        pago_a_banco=False,
     )

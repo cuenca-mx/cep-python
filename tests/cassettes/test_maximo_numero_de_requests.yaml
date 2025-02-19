@@ -1,6 +1,6 @@
 interactions:
 - request:
-    body: tipoCriterio=T&receptorParticipante=0&captcha=c&tipoConsulta=1&fecha=19-04-2022&criterio=CUENCA927820173168&emisor=90646&receptor=40012&cuenta=012180000&monto=0.01
+    body: tipoCriterio=T&captcha=c&tipoConsulta=1&fecha=08-11-2024&criterio=MIFELSPEI20241108102122835&emisor=40042&receptor=90723&cuenta=723969000011000077&monto=20912.98&receptorParticipante=0
     headers:
       Accept:
       - '*/*'
@@ -9,14 +9,14 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '172'
+      - '184'
       Content-Type:
       - application/x-www-form-urlencoded
       User-Agent:
       - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
         like Gecko) Chrome/75.0.3770.142 Safari/537.36
     method: POST
-    uri: http://www.banxico.org.mx/cep/valida.do
+    uri: http://www.banxico.org.mx/cep-beta/valida.do
   response:
     body:
       string: ''
@@ -25,17 +25,15 @@ interactions:
       - Keep-Alive
       Content-Length:
       - '0'
-      Date:
-      - Tue, 19 Apr 2022 21:51:50 GMT
       Location:
-      - https://www.banxico.org.mx/cep/valida.do
+      - https://www.banxico.org.mx/cep-beta/valida.do
       Server:
       - mxbanxico
     status:
       code: 307
       message: Temporary Redirect
 - request:
-    body: tipoCriterio=T&receptorParticipante=0&captcha=c&tipoConsulta=1&fecha=19-04-2022&criterio=CUENCA927820173168&emisor=90646&receptor=40012&cuenta=012180000&monto=0.01
+    body: tipoCriterio=T&captcha=c&tipoConsulta=1&fecha=08-11-2024&criterio=MIFELSPEI20241108102122835&emisor=40042&receptor=90723&cuenta=723969000011000077&monto=20912.98&receptorParticipante=0
     headers:
       Accept:
       - '*/*'
@@ -44,67 +42,40 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '172'
+      - '184'
       Content-Type:
       - application/x-www-form-urlencoded
       User-Agent:
       - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
         like Gecko) Chrome/75.0.3770.142 Safari/537.36
     method: POST
-    uri: https://www.banxico.org.mx/cep/valida.do
+    uri: https://www.banxico.org.mx/cep-beta/valida.do
   response:
     body:
-      string: "\n<!DOCTYPE html>\n<html lang=\"es\">\n    <head>\n        <meta http-equiv=\"\
-        Content-Type\" content=\"text/html; charset=UTF-8\">\n        \n<meta name=\"\
-        viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=no\"\
-        \ />\n<meta charset=\"utf-8\" /> \n<meta http-equiv=\"X-UA-Compatible\" content=\"\
-        IE=9; IE=8; IE=7; IE=edge\" />\n<link rel=\"apple-touch-icon\" href=\"images/icon.png\"\
-        />\n<link rel=\"shortcut icon\" href=\"images/icon.png\">\n<!--Bootstrap-->\n\
-        <!--<link href=\"//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css\"\
-        \ rel=\"stylesheet\">\n<link rel=stylesheet href=\"css/bootstrap/bootstrap.min.css\"\
-        \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"css/bootstrap/dataTables.bootstrap.min.css\"\
-        \ type=\"text/css\" >-->\n<link rel=stylesheet href=\"css/fuentes.css\" type=\"\
-        text/css\">\n\n    <link rel=stylesheet href=\"css/cep-min.css\" type=\"text/css\"\
-        >\n\n<!-- JQuery -->\n<script type=\"text/javascript\" src=\"js/jquery-3.0.0.min.js\"\
-        ></script>\n<script type=\"text/javascript\" src=\"js/jquery-ui.min.js\"></script>\n\
-        <script type=\"text/javascript\" src=\"js/jquery/jquery.dataTables.min.js\"\
-        ></script>\n<script type=\"text/javascript\" src=\"js/datepicker-es.js\"></script>\n\
-        \n<!-- Validations -->\n<script type=\"text/javascript\" src=\"js/validations/validateInput.js\"\
-        ></script>\n<script type=\"text/javascript\" src=\"js/validations/validateEvents.js\"\
-        ></script>\n<script type=\"text/javascript\" src=\"js/validations/validateWriting.js\"\
-        ></script>\n<script type=\"text/javascript\" src=\"js/validations/validationBussines.js\"\
-        ></script>\n\n<!--Bootstrap-->\n<!--<script src=\"js/bootstrap/bootstrap.min.js\"\
-        ></script>-->\n<!--Bootbox Alert-->\n<!--<script type=\"text/javascript\"\
-        \ src=\"js/bootstrap/bootbox.min.js\"></script>-->\n<!--Bootstrap Tables-->\n\
-        <!--<script type=\"text/javascript\" src=\"js/bootstrap/dataTables.bootstrap.min.js\"\
-        ></script>-->\n\n        <title>Comprobante Electr&oacute;nico de Pago</title>\n\
-        \    </head>\n    <body>\n        <div id=\"pagewidth\" >\n            <div\
-        \ id=\"header\">\n                <div id=\"headermobile\"></div>\n      \
-        \      </div>\n            <div id=\"appHead\"><span class=\"appName\">COMPROBANTE\
-        \ ELECTR&Oacute;NICO DE PAGO (CEP)</span></div>\n            <div id=\"appMain\"\
-        \ style=\"text-align: center;\">\n                <h1>Lo sentimos, pero ha\
-        \ excedido el n&uacute;mero m&aacute;ximo de consultas en este portal. Favor\
-        \ de intentar nuevamente m&aacute;s tarde.</h1>\n            </div>\n    \
-        \    </div>\n    </body>\n</html>\n"
+      string: "\r\n<div class=\"bg-banxico title-bar\">\r\n    <i class=\"icono-header
+        icon-warning3\"></i>\r\n    Error\r\n</div>\r\n<div id=\"#error_div\">\r\n
+        \   <div class=\"info\">\r\n        <p style=\"padding: 10px;max-width: 500px;
+        text-align: center;\">\r\n            La imagen de seguridad no fue ingresada
+        correctamente. Favor de validar.\r\n        </p>\r\n    </div>\r\n</div>\r\n<input
+        type=\"hidden\" name=\"varHideCaptcha\" value=\"false\"/>\r\n"
     headers:
       Content-Language:
       - es-MX
       Content-Length:
-      - '2406'
+      - '405'
       Content-Type:
       - text/html; charset=UTF-8
       Date:
-      - Tue, 19 Apr 2022 21:51:50 GMT
+      - Thu, 13 Feb 2025 16:25:42 GMT
       Set-Cookie:
-      - JSESSIONID=KLdDz3LR_IRe6qPumAGCjSRfNZx91q8BIj_LwHRY_LCcibcfWTvI!1328161135;
-        path=/; HttpOnly
-      - Hex39714011=!AkEDf9NaQgleUL/405nf5XFqnQVk9D9VcrkCYEPQep+A3oHUJyDE8htrLE4FTPUpRUMsOdkbRDIubA==;
-        expires=Wed, 20-Apr-2022 05:51:50 GMT; path=/; Httponly
-      - TS012f422b=01ab44a5a84ba34c6254a45e478d11f14262bf511a9306483d2c7cc58f192905fd9e019d5473069defd5830e310c3982200f31571ee74849480bcf0ab316272c5ea364881c0f4c784228060d62792d55448c10604e;
+      - JSESSIONID=AS4AIWMph2RKRjojRTF5_N4b9kfLwdMsncJqiQinT_752Vx2GS8B!-2094109768;
+        path=/; secure; HttpOnly
+      - Hex39764011=!hSRb/Oe+A9DmfVpFNVyFw/oTv40kxBHSz82QTZMRfFQU7+JaOgCgLcUPOjkXc1hbKgS3ZNHNYoGjsA==;
+        expires=Fri, 14-Feb-2025 00:25:42 GMT; path=/; Httponly
+      - 'TS012f422b=01ab44a5a8d9a8e09362eeb6005e191d30b6d416f9aff63b11604fa9565134550d619fba7e5f8bedcba4cab821a9c5faf9141f27f98c014cf50c8a72cb4c85d18a15f783b94c2e4bccfcb050806ecad51b8cd345f2;
+        Path=/; '
+      - TS604574e3027=083fd6a492ab2000497ab8b20a6d67fc875b408f70a7265878992e1c2f7efb0cb3077a452c6c728208561400b9113000e1352844986ca35e677b00c3773eacb5c72c53cdd2306241d334310be9e403b7a42f80355f376c9f787bc45252f5a395;
         Path=/
-      - TS604574e3027=083fd6a492ab200089282012bc422149ca7726bed6c29d31e21f2e7154820a0e40d2b889733f26af0874c788d0113000f9f421179607e3aae9aff0c88a12638e3960b93e5387f38da0cc9c7e29fdc65544bb76cc96f53551446a69ff8e3b4763;Path=/
-      X-OPNET-Transaction-Trace:
-      - a2_99506051-843d-42c8-863a-517d53d6c767
     status:
       code: 200
       message: OK
@@ -118,15 +89,14 @@ interactions:
       Connection:
       - keep-alive
       Cookie:
-      - Hex39714011=!AkEDf9NaQgleUL/405nf5XFqnQVk9D9VcrkCYEPQep+A3oHUJyDE8htrLE4FTPUpRUMsOdkbRDIubA==;
-        JSESSIONID=KLdDz3LR_IRe6qPumAGCjSRfNZx91q8BIj_LwHRY_LCcibcfWTvI!1328161135;
-        TS012f422b=01ab44a5a84ba34c6254a45e478d11f14262bf511a9306483d2c7cc58f192905fd9e019d5473069defd5830e310c3982200f31571ee74849480bcf0ab316272c5ea364881c0f4c784228060d62792d55448c10604e;
-        TS604574e3027=083fd6a492ab200089282012bc422149ca7726bed6c29d31e21f2e7154820a0e40d2b889733f26af0874c788d0113000f9f421179607e3aae9aff0c88a12638e3960b93e5387f38da0cc9c7e29fdc65544bb76cc96f53551446a69ff8e3b4763
+      - Hex39764011=!hSRb/Oe+A9DmfVpFNVyFw/oTv40kxBHSz82QTZMRfFQU7+JaOgCgLcUPOjkXc1hbKgS3ZNHNYoGjsA==;
+        TS012f422b=01ab44a5a8d9a8e09362eeb6005e191d30b6d416f9aff63b11604fa9565134550d619fba7e5f8bedcba4cab821a9c5faf9141f27f98c014cf50c8a72cb4c85d18a15f783b94c2e4bccfcb050806ecad51b8cd345f2;
+        TS604574e3027=083fd6a492ab2000497ab8b20a6d67fc875b408f70a7265878992e1c2f7efb0cb3077a452c6c728208561400b9113000e1352844986ca35e677b00c3773eacb5c72c53cdd2306241d334310be9e403b7a42f80355f376c9f787bc45252f5a395
       User-Agent:
       - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
         like Gecko) Chrome/75.0.3770.142 Safari/537.36
     method: GET
-    uri: http://www.banxico.org.mx/cep/descarga.do?formato=XML
+    uri: http://www.banxico.org.mx/cep-beta/descarga.do?formato=XML
   response:
     body:
       string: ''
@@ -135,10 +105,8 @@ interactions:
       - Keep-Alive
       Content-Length:
       - '0'
-      Date:
-      - Tue, 19 Apr 2022 21:51:50 GMT
       Location:
-      - https://www.banxico.org.mx/cep/descarga.do?formato=XML
+      - https://www.banxico.org.mx/cep-beta/descarga.do?formato=XML
       Server:
       - mxbanxico
     status:
@@ -154,49 +122,46 @@ interactions:
       Connection:
       - keep-alive
       Cookie:
-      - Hex39714011=!AkEDf9NaQgleUL/405nf5XFqnQVk9D9VcrkCYEPQep+A3oHUJyDE8htrLE4FTPUpRUMsOdkbRDIubA==;
-        JSESSIONID=KLdDz3LR_IRe6qPumAGCjSRfNZx91q8BIj_LwHRY_LCcibcfWTvI!1328161135;
-        TS012f422b=01ab44a5a84ba34c6254a45e478d11f14262bf511a9306483d2c7cc58f192905fd9e019d5473069defd5830e310c3982200f31571ee74849480bcf0ab316272c5ea364881c0f4c784228060d62792d55448c10604e;
-        TS604574e3027=083fd6a492ab200089282012bc422149ca7726bed6c29d31e21f2e7154820a0e40d2b889733f26af0874c788d0113000f9f421179607e3aae9aff0c88a12638e3960b93e5387f38da0cc9c7e29fdc65544bb76cc96f53551446a69ff8e3b4763
+      - JSESSIONID=AS4AIWMph2RKRjojRTF5_N4b9kfLwdMsncJqiQinT_752Vx2GS8B!-2094109768;
+        Hex39764011=!hSRb/Oe+A9DmfVpFNVyFw/oTv40kxBHSz82QTZMRfFQU7+JaOgCgLcUPOjkXc1hbKgS3ZNHNYoGjsA==;
+        TS012f422b=01ab44a5a8d9a8e09362eeb6005e191d30b6d416f9aff63b11604fa9565134550d619fba7e5f8bedcba4cab821a9c5faf9141f27f98c014cf50c8a72cb4c85d18a15f783b94c2e4bccfcb050806ecad51b8cd345f2;
+        TS604574e3027=083fd6a492ab2000497ab8b20a6d67fc875b408f70a7265878992e1c2f7efb0cb3077a452c6c728208561400b9113000e1352844986ca35e677b00c3773eacb5c72c53cdd2306241d334310be9e403b7a42f80355f376c9f787bc45252f5a395
       User-Agent:
       - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML,
         like Gecko) Chrome/75.0.3770.142 Safari/537.36
     method: GET
-    uri: https://www.banxico.org.mx/cep/descarga.do?formato=XML
+    uri: https://www.banxico.org.mx/cep-beta/descarga.do?formato=XML
   response:
     body:
-      string: "\n<!DOCTYPE html>\n<html lang=\"es\">\n    <head>\n        <meta http-equiv=\"\
-        Content-Type\" content=\"text/html; charset=UTF-8\">\n        \n<meta name=\"\
-        viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=no\"\
-        \ />\n<meta charset=\"utf-8\" /> \n<meta http-equiv=\"X-UA-Compatible\" content=\"\
-        IE=9; IE=8; IE=7; IE=edge\" />\n<link rel=\"apple-touch-icon\" href=\"images/icon.png\"\
-        />\n<link rel=\"shortcut icon\" href=\"images/icon.png\">\n<!--Bootstrap-->\n\
-        <!--<link href=\"//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css\"\
-        \ rel=\"stylesheet\">\n<link rel=stylesheet href=\"css/bootstrap/bootstrap.min.css\"\
-        \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"css/bootstrap/dataTables.bootstrap.min.css\"\
-        \ type=\"text/css\" >-->\n<link rel=stylesheet href=\"css/fuentes.css\" type=\"\
-        text/css\">\n\n    <link rel=stylesheet href=\"css/cep-min.css\" type=\"text/css\"\
-        >\n\n<!-- JQuery -->\n<script type=\"text/javascript\" src=\"js/jquery-3.0.0.min.js\"\
-        ></script>\n<script type=\"text/javascript\" src=\"js/jquery-ui.min.js\"></script>\n\
-        <script type=\"text/javascript\" src=\"js/jquery/jquery.dataTables.min.js\"\
-        ></script>\n<script type=\"text/javascript\" src=\"js/datepicker-es.js\"></script>\n\
-        \n<!-- Validations -->\n<script type=\"text/javascript\" src=\"js/validations/validateInput.js\"\
-        ></script>\n<script type=\"text/javascript\" src=\"js/validations/validateEvents.js\"\
-        ></script>\n<script type=\"text/javascript\" src=\"js/validations/validateWriting.js\"\
-        ></script>\n<script type=\"text/javascript\" src=\"js/validations/validationBussines.js\"\
-        ></script>\n\n<!--Bootstrap-->\n<!--<script src=\"js/bootstrap/bootstrap.min.js\"\
-        ></script>-->\n<!--Bootbox Alert-->\n<!--<script type=\"text/javascript\"\
-        \ src=\"js/bootstrap/bootbox.min.js\"></script>-->\n<!--Bootstrap Tables-->\n\
-        <!--<script type=\"text/javascript\" src=\"js/bootstrap/dataTables.bootstrap.min.js\"\
-        ></script>-->\n\n        <title>Comprobante Electr&oacute;nico de Pago</title>\n\
-        \    </head>\n    <body>\n        <div id=\"pagewidth\" >\n            <div\
-        \ id=\"header\">\n                <div id=\"headermobile\"></div>\n      \
-        \      </div>\n            <div id=\"appHead\"><span class=\"appName\">COMPROBANTE\
-        \ ELECTR&Oacute;NICO DE PAGO (CEP)</span></div>\n            <div id=\"appMain\"\
-        \ style=\"text-align: center;\">\n                <h1>Lo sentimos, pero ha\
-        \ excedido el n&uacute;mero m&aacute;ximo de consultas en este portal. Favor\
-        \ de intentar nuevamente m&aacute;s tarde.</h1>\n            </div>\n    \
-        \    </div>\n    </body>\n</html>\n"
+      string: "\n<!DOCTYPE html>\n<html lang=\"es\">\n    <head>\n        <meta http-equiv=\"Content-Type\"
+        content=\"text/html; charset=UTF-8\">\n        \n<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=no\"
+        />\n<meta charset=\"utf-8\" /> \n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9;
+        IE=8; IE=7; IE=edge\" />\n<link rel=\"apple-touch-icon\" href=\"images/icon.png\"/>\n<link
+        rel=\"shortcut icon\" href=\"images/icon.png\">\n<!--Bootstrap-->\n<!--<link
+        href=\"//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css\"
+        rel=\"stylesheet\">\n<link rel=stylesheet href=\"css/bootstrap/bootstrap.min.css\"
+        type=\"text/css\">\n<link rel=\"stylesheet\" href=\"css/bootstrap/dataTables.bootstrap.min.css\"
+        type=\"text/css\" >-->\n<link rel=stylesheet href=\"css/fuentes.css\" type=\"text/css\">\n\n
+        \   <link rel=stylesheet href=\"css/cep-min.css\" type=\"text/css\">\n\n<!--
+        JQuery -->\n<script type=\"text/javascript\" src=\"js/jquery-3.6.1.min.js\"></script>\n<script
+        type=\"text/javascript\" src=\"js/jquery-ui.min.js\"></script>\n<script type=\"text/javascript\"
+        src=\"js/jquery/jquery.dataTables.min.js\"></script>\n<script type=\"text/javascript\"
+        src=\"js/datepicker-es.js\"></script>\n\n<!-- Validations -->\n<script type=\"text/javascript\"
+        src=\"js/validations/validateInput.js\"></script>\n<script type=\"text/javascript\"
+        src=\"js/validations/validateEvents.js\"></script>\n<script type=\"text/javascript\"
+        src=\"js/validations/validateWriting.js\"></script>\n<script type=\"text/javascript\"
+        src=\"js/validations/validationBussines.js\"></script>\n\n<!--Bootstrap-->\n<!--<script
+        src=\"js/bootstrap/bootstrap.min.js\"></script>-->\n<!--Bootbox Alert-->\n<!--<script
+        type=\"text/javascript\" src=\"js/bootstrap/bootbox.min.js\"></script>-->\n<!--Bootstrap
+        Tables-->\n<!--<script type=\"text/javascript\" src=\"js/bootstrap/dataTables.bootstrap.min.js\"></script>-->\n\n
+        \       <title>Comprobante Electr&oacute;nico de Pago</title>\n    </head>\n
+        \   <body>\n        <div id=\"pagewidth\" >\n            <div id=\"header\">\n
+        \               <div id=\"headermobile\"></div>\n            </div>\n            <div
+        id=\"appHead\"><span class=\"appName\">COMPROBANTE ELECTR&Oacute;NICO DE PAGO
+        (CEP)</span></div>\n            <div id=\"appMain\" style=\"text-align: center;\">\n
+        \               <h1>Lo sentimos, pero ha excedido el n&uacute;mero m&aacute;ximo
+        de consultas en este portal. Favor de intentar nuevamente m&aacute;s tarde.</h1>\n
+        \           </div>\n        </div>\n    </body>\n</html>\n"
     headers:
       Content-Language:
       - es-MX
@@ -205,15 +170,14 @@ interactions:
       Content-Type:
       - text/html; charset=UTF-8
       Date:
-      - Tue, 19 Apr 2022 21:51:50 GMT
+      - Thu, 13 Feb 2025 16:25:43 GMT
       Set-Cookie:
-      - SRVCOOKIE=!2w1jhvdlbozG5sb405nf5XFqnQVk9J2n59GepkXVIK+/WmlCJ2w++9O5OIqqMhcKpRUWOm6OREn2nQ==;
-        expires=Wed, 20-Apr-2022 05:51:50 GMT; path=/; Httponly
-      - TS012f422b=01ab44a5a884a34c70cd0f67c02ee851d659a1698d9306483d2c7cc58f192905fd9e019d5473069defd5830e310c3982200f31571ee74849480bcf0ab316272c5ea364881c5cf1af23755b31ab92b4f41241a75e918e80a00b5317894584a9338a0662afdb;
+      - Hex39764011=!AdDwggDFbRxADm9FNVyFw/oTv40kxF/a5FkbnH6T/KlLrJISuF4eZtPnA/tx0yFaA12snkkYuwg1fQ==;
+        expires=Fri, 14-Feb-2025 00:25:43 GMT; path=/; Httponly
+      - 'TS012f422b=01ab44a5a8fff85cbf9871020a39c5fcee17bd7cdbaff63b11604fa9565134550d619fba7e5f8bedcba4cab821a9c5faf9141f27f98c014cf50c8a72cb4c85d18a15f783b971711cce79568f9c3e8d321fa17ca017;
+        Path=/; '
+      - TS604574e3027=083fd6a492ab2000f93b94def09fda594000f13c8e94e403a7f9129a33b66c194b6a8ddc97066c7208e3378b3111300095cd17a15b9de6bac10528f84c16c63655b0a224e9521493dacdcad85b8c2b310948e49391f08b7e5ba8638ff349ab6f;
         Path=/
-      - TS604574e3027=083fd6a492ab2000a7fde1407f73b9cacfd9f9413af72771dd0cea9f02f4d034e5cf9893e5396e6d08ec67f70d113000231aad0df5d8e978e9aff0c88a12638e3960b93e5387f38da0cc9c7e29fdc65544bb76cc96f53551446a69ff8e3b4763;Path=/
-      X-OPNET-Transaction-Trace:
-      - a2_a071dea0-3515-4de5-b164-07ba2e5b55f6
     status:
       code: 200
       message: OK
