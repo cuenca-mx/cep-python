@@ -25,7 +25,7 @@ setup(
     install_requires=[
         'requests>=2.32.0,<3.0.0',
         'clabe>=2.0.0,<3.0.0',
-        'lxml>=5.3.0,<6.0.0',
+        'lxml>=5.3.0,<7.0.0',
     ],
     classifiers=[
         'Programming Language :: Python :: 3.10',
